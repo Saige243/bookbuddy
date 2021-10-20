@@ -1,14 +1,11 @@
-.app{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr ;
+.time {
+  font-size: 4vw;
+  padding: 2rem;
+  width: fit-content;
   
 }
 
-.time {
-  font-size: 3vw;
-  padding: 2rem;
-  width: fit-content;
+.timercontainer{
 }
 
 .button {
@@ -19,7 +16,6 @@
   font-weight: 600;
   font-size: .8rem;
   width: fit-content;
-
   border-style: groove;
 }
 
@@ -43,3 +39,25 @@
   border: 1px solid #152684;
   color: white;
 }
+
+
+/* HOME */
+.homecontainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr ;
+  justify-content: center;
+  justify-items: center;
+}
+/* __________ */
+
+
+/* SEARCH */
+.searchcontainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr ;
+  justify-content: center;
+  justify-items: center;
+}
+

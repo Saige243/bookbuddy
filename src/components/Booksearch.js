@@ -15,7 +15,7 @@ export default function Booksearch() {
   function handleSubmit(e){
     e.preventDefault();
     
-    axios.get("https://www.googleapis.com/books/v1/volumes?q="+ book + "&key=" + apiKey + "&maxResults=10").then(data => {
+    axios.get("https://www.googleapis.com/books/v1/volumes?q="+ book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
       console.log(data.data.items)
     })
@@ -23,11 +23,11 @@ export default function Booksearch() {
 
   return (
     <div>
-      <div className="container">
+      <div className="bookContainer">
         <h1>Search For Books</h1>
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
-            <input type="text" onChange={handleChange} className="inputcontrol" placeholder="Search For Books" autoComplete="off"></input>
+            <input type="text" onChange={handleChange} className="inputcontrol" placeholder="Search For Books" autoComplete="on"></input>
           </div>
           <button type="submit" className="btn">Search</button>
         </form>

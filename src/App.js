@@ -1,24 +1,29 @@
 import * as React from "react"
 import Timer from './components/Timer'
 import axios from 'axios'
-import Booksearch from './components/Booksearch'
 import './App.css'
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from './pages';
+import Library from './pages/library';
+import Search from './pages/search';
+import SignUp from './pages/signup';
+import SignIn from './pages/signin';
+
 
 function App() {
   return (
     <div className="app">
-      <div className="bookcontainer">
-        <Booksearch />
-      </div>
-      <div>
-        <p>HEY THIS IS WORKING</p>
-      </div>
-      <div className="timercontainer">
-        <Timer />
-      </div>
-      <div>
-        <p>HEY THIS IS WORKING</p>
-      </div>
+      <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/search" component={Search} />
+        <Route path="/library" component={Library} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+      </Switch>
+    </Router>
     </div>
   );
 }

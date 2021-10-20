@@ -26,7 +26,7 @@ const Timer = () => {
   }, [isActive, seconds]);
 
   return (
-    <div className="apps">
+    <div className="timercontainer">
       <div className="time">
         {seconds}s
       </div>
