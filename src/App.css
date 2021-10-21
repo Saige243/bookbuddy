@@ -61,3 +61,8 @@
   justify-items: center;
 }
 
+/* LIBRARY */
+.library{
+  display: grid;
+  justify-content: center;
+}
