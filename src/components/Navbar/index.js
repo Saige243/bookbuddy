@@ -1,4 +1,5 @@
 import React from 'react'
+import Dropdown from './Dropdown'
 import {
   Nav,
   NavLogo,
@@ -17,7 +18,8 @@ export default function Navbar() {
             <NavLogo to="/">
                 BookBud
             </NavLogo>
-            <Bars />
+            {/* <Bars /> */}
+            <Dropdown />
 
             <NavMenu>
                 <NavLink to="/" activeStyle>

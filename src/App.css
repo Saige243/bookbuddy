@@ -5,6 +5,33 @@
   
 }
 
+/* @media screen and (max-width: 768px){ 
+  .DropMenu{
+    display: none;
+    color: #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 75%);
+    font-size: rem;
+    cursor: pointer;
+    color: white;
+}
+} */
+
+@media screen and (min-width: 768px){
+  .DropMenu{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .DropMenu{
+    padding-right: 15px;
+  }
+}
+
 .timercontainer{
 }
 
