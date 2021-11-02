@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button'
+
+
 
 export default function Booksearch() {
 
@@ -29,7 +32,7 @@ export default function Booksearch() {
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="Search For Books" autoComplete="on"></input>
           </div>
-          <button type="submit" className="btn">Search</button>
+          <Button type="submit" className="btn">Search</Button>
         </form>
         {result.map(book => (
           <a target=" blank" a href={book.volumeInfo.previewLink}>

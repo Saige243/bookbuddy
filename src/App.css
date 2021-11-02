@@ -82,14 +82,23 @@
 /* SEARCH */
 .searchcontainer{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr ;
-  justify-content: center;
-  justify-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  text-align: center;
 }
 
 /* LIBRARY */
 .library{
   display: grid;
   justify-content: center;
+}
+
+/* SIGN IN */
+/* .signin{
+  text-align: center;
+} */
+
+/* SIGN UP */
+.signup{
+  text-align: center;
 }

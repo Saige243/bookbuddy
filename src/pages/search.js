@@ -7,9 +7,6 @@ export default function search() {
       <div className="booksearch">
         <Booksearch />
       </div>
-      <div>
-        <h1>Results</h1>
-      </div>
     </div>
   )
 }
