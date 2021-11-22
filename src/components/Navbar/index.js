@@ -31,9 +31,6 @@ export default function Navbar() {
                 <NavLink to="/library" activeStyle>
                     My Library
                 </NavLink>
-                <NavLink to="/signin" activeStyle>
-                    Sign In
-                </NavLink>
                 <NavBtn>
                     <NavBtnLink to="/signup">Sign Up</NavBtnLink>                
                 </NavBtn>

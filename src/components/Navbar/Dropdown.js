@@ -10,10 +10,9 @@ export default function DropdownMenu() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/">Home</Dropdown.Item>
+          <Dropdown.Item href="/">Dashboard</Dropdown.Item>
           <Dropdown.Item href="/search">Search A Book</Dropdown.Item>
           <Dropdown.Item href="/library">My Library</Dropdown.Item>
-          <Dropdown.Item href="/signin">Sign In</Dropdown.Item>
           <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

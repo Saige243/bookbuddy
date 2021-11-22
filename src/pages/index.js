@@ -9,7 +9,6 @@ export default function index() {
           <h1>Now Reading</h1>
         </div>
         <div className="timer">
-          <Timer />
         </div>
       </div>
     </div>

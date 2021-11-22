@@ -8,7 +8,6 @@ import Home from './pages';
 import Library from './pages/library';
 import Search from './pages/search';
 import SignUp from './pages/signup';
-import SignIn from './pages/signin';
 
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/search" component={Search} />
         <Route path="/library" component={Library} />
-        <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
       </Switch>
     </Router>
