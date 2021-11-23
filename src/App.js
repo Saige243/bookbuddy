@@ -8,21 +8,27 @@ import Home from './pages';
 import Library from './pages/library';
 import Search from './pages/search';
 import SignUp from './pages/signup';
+import { Container } from 'react-bootstrap'
+import AuthProvider from './contexts/AuthContext';
+import Dashboard from './components/Dashboard'
+import Login from './components/Login'
 
 
 function App() {
   return (
-    <div className="app">
+    <Container>
+      <div className="app">
       <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/search" component={Search} />
-        <Route path="/library" component={Library} />
-        <Route path="/signup" component={SignUp} />
-      </Switch>
-    </Router>
-    </div>
+        <AuthProvider>
+        <Switch>
+          <Route exact path='/' component={Dashboard} />
+          <Route path='/signup' component={SignUp} />
+          <Route path='/login' component={Login} />
+        </Switch>
+        </AuthProvider>
+      </Router>
+      </div>
+    </Container>
   );
 }
 
