@@ -11,7 +11,7 @@ import SignUp from './pages/signup';
 import { Container } from 'react-bootstrap'
 import AuthProvider from './contexts/AuthContext';
 import Dashboard from './components/Dashboard'
-import Login from './components/Login'
+import Login from './pages/login'
 
 
 function App() {
