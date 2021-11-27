@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function library() {
   return (
-    <div className="library">
+    <div>
       <Navbar />
       <h1>My Library</h1>
     </div>
