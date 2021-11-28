@@ -1,3 +1,5 @@
+
+
 .time {
   font-size: 4vw;
   padding: 2rem;
@@ -30,9 +32,6 @@
   .DropMenu{
     padding-right: 15px;
   }
-}
-
-.timercontainer{
 }
 
 .button {
@@ -104,8 +103,3 @@
 }
 
 
-
-
-.casa{
-  width: 100%;
-}

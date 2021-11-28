@@ -4,7 +4,7 @@ import  '../App.css'
 
 export default function Dashboard() {
   return (
-    <div className="casa">
+    <div>
       <Navbar />
       oy
     </div>

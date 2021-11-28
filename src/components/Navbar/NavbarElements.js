@@ -1,10 +1,9 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-// import { FaBars } from "react-icons/fa";
 
 
 export const Nav = styled.nav`
-    background: orangered;
+    background: blue;
     height: 70px;
     display: flex;
     justify-content: space-between;
