@@ -26,7 +26,7 @@ export default function Signupcomp() {
       setError('')
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push('/')
+      history.push('/dash')
   } catch {
     setError('Failed to create an account')
   }
@@ -60,7 +60,7 @@ export default function Signupcomp() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account? <Link to='/login'>Login</Link>
+        Already have an account? <Link to='/'>Login</Link>
       </div>
     </div>
   )

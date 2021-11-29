@@ -10,6 +10,7 @@ import SignUp from './pages/signup';
 import { Container } from 'react-bootstrap'
 import AuthProvider from './contexts/AuthContext';
 import Dash from './components/Dashboard'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/login'
 import './App.css'
 
@@ -22,11 +23,11 @@ function App() {
       <Router>
         <AuthProvider>
         <Switch>
-          <Route exact path='/' component={Dash} />
+          <Route exact path='/dash' component={Dash} />
           <Route path="/search" component={Search} />
           <Route path='/signup' component={SignUp} />
           <Route path="/library" component={Library} />
-          <Route path='/login' component={Login} />
+          <Route exact path='/' component={Login} />
         </Switch>
         </AuthProvider>
       </Router>
