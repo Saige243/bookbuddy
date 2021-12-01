@@ -18,7 +18,7 @@ import './App.css'
 
 function App() {
   return (
-    <Container fluid>
+    <Container fluid className='p-0'>
       <div className="app">
       <Router>
         <AuthProvider>
