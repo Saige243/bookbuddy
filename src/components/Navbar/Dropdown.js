@@ -25,7 +25,7 @@ export default function DropdownMenu() {
   return (
     <div>
       <Dropdown className="DropMenu">
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle variant="info" id="dropdown-basic">
           Menu
         </Dropdown.Toggle>
 

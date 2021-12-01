@@ -93,9 +93,10 @@
 }
 
 /* SIGN IN */
-/* .signin{
-  text-align: center;
-} */
+
+.logincard{
+  box-shadow: green;
+}
 
 /* SIGN UP */
 .signup{
