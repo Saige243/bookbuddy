@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Dropdown from './Dropdown'
 import {
   Nav,
@@ -9,20 +9,40 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
+import { Button, Alert } from 'react-bootstrap'
+import { useAuth } from "../../contexts/AuthContext"
+import { Link, useHistory } from "react-router-dom"
 
 
 export default function Navbar() {
+  const [error, setError] = useState('')
+  const { currentUser, logout } = useAuth()
+  const history = useHistory()
+
+  async function handleLogout(){
+    setError('')
+
+    try {
+      await logout()
+      history.push('/')
+    } catch {
+      setError('failed to log out')
+    }
+
+  }
+
+
   return (
     <div>
       <Nav>
-            <NavLogo to="/">
+            <NavLogo to="/dash">
                 BookBud
             </NavLogo>
             {/* <Bars /> */}
             <Dropdown />
 
             <NavMenu>
-                <NavLink to="/" activeStyle>
+                <NavLink to="/dash" activeStyle>
                     Home
                 </NavLink>
                 <NavLink to="/search" activeStyle>
@@ -31,9 +51,9 @@ export default function Navbar() {
                 <NavLink to="/library" activeStyle>
                     My Library
                 </NavLink>
-                <NavBtn>
-                    <NavBtnLink to="/signup">Sign Up</NavBtnLink>                
-                </NavBtn>
+                <NavLink to='/' onClick={handleLogout}>
+                  Log Out
+                </NavLink>
             </NavMenu> 
            </Nav> 
       
