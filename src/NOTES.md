@@ -1,0 +1,1 @@
+• Make font icons from font awesome instead of 'library' and 'home' etc.
