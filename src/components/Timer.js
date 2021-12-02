@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Alert, Card } from 'react-bootstrap'
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
@@ -31,12 +32,12 @@ const Timer = () => {
         {seconds}s
       </div>
       <div className="row">
-        <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
+        <Button size="sm" className={`mb-1 ${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
           {isActive ? 'Pause' : 'Start'}
-        </button>
-        <button className="button" onClick={reset}>
+        </Button>
+        <Button size="sm" onClick={reset}>
           Reset
-        </button>
+        </Button>
       </div>
     </div>
   );
