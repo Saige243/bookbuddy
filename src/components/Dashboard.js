@@ -12,8 +12,8 @@ export default function Dashboard() {
       <Navbar />
       <Container fluid="lg">
         <Row>
-          <Col>
-            <Card className="m-2 text-center" style={{ width: '22rem' }}>
+          <Col xs={8} md={7}>
+            <Card className="m-2 text-center" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
                   <Card.Title >Now Reading</Card.Title>
                   <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
@@ -21,8 +21,8 @@ export default function Dashboard() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col>
-              <Card className="m-2 text-center" style={{ width: '22rem' }}>
+            <Col xs={8} md={5}>
+              <Card className="m-2 text-center" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
                   <Card.Title >Reading Timer</Card.Title>
                   <Timer />
