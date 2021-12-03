@@ -42,7 +42,7 @@ export default function Navbar() {
             <Dropdown />
 
             <NavMenu>
-                <NavLink to="/dash" activeStyle>
+                <NavLink className="navlink" to="/dash" activeStyle>
                     Home
                 </NavLink>
                 <NavLink to="/search" activeStyle>
