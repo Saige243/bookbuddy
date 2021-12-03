@@ -29,7 +29,7 @@ const Timer = () => {
   return (
     <div className="timercontainer">
       <div className="time">
-        {seconds}s
+        {seconds}
       </div>
       <div className="row">
         <Button size="sm" className={`mb-1 ${isActive ? 'active' : 'inactive'}`} onClick={toggle}>

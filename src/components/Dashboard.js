@@ -17,7 +17,7 @@ export default function Dashboard() {
                 <Card.Body className="shadow sm">
                   <Card.Title >Now Reading</Card.Title>
                   <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-                  <Card.Subtitle>Progress:</Card.Subtitle>
+                  <Card.Subtitle className="mt-2">Progress:</Card.Subtitle>
                 </Card.Body>
               </Card>
             </Col>
