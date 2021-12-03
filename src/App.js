@@ -13,6 +13,7 @@ import Dash from './components/Dashboard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/login'
 import './App.css'
+import PrivateRoute from './components/PrivateRoute'
 
 
 
@@ -23,10 +24,10 @@ function App() {
       <Router>
         <AuthProvider>
         <Switch>
-          <Route exact path='/dash' component={Dash} />
-          <Route path="/search" component={Search} />
+          <PrivateRoute exact path='/dash' component={Dash} />
+          <PrivateRoute path="/search" component={Search} />
           <Route path='/signup' component={SignUp} />
-          <Route path="/library" component={Library} />
+          <PrivateRoute path="/library" component={Library} />
           <Route exact path='/' component={Login} />
         </Switch>
         </AuthProvider>
