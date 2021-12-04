@@ -3,7 +3,6 @@
   font-size: 4vw;
   padding: 2rem;
   width: fit-content;
-  
 }
 
 
@@ -74,6 +73,8 @@
   justify-content: center;
   justify-items: center;
 }
+
+
 /* __________ */
 
 
@@ -92,7 +93,6 @@
 }
 
 /* SIGN IN */
-
 .logincard{
   box-shadow: green;
 }
@@ -100,9 +100,5 @@
 /* SIGN UP */
 .signup{
   text-align: center;
-}
-
-.navlink{
-  text-decoration: none;
 }
 

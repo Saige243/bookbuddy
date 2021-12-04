@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Dropdown from './Dropdown'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookOpen, faBook, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import {
   Nav,
   NavLogo,
@@ -40,19 +42,18 @@ export default function Navbar() {
             </NavLogo>
             {/* <Bars /> */}
             <Dropdown />
-
             <NavMenu>
                 <NavLink className="navlink" to="/dash" activeStyle>
-                    Home
+                  <FontAwesomeIcon icon={faHome} />
                 </NavLink>
                 <NavLink to="/search" activeStyle>
-                    Search A Book
+                  <FontAwesomeIcon icon={faBook} />
                 </NavLink>
                 <NavLink to="/library" activeStyle>
-                    My Library
+                  <FontAwesomeIcon icon={faBookOpen} />
                 </NavLink>
                 <NavLink to='/' onClick={handleLogout}>
-                  Log Out
+                  <FontAwesomeIcon icon={faSignOutAlt} />
                 </NavLink>
             </NavMenu> 
            </Nav> 
