@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Alert, Card, Container, Col, Row } from 'react-bootstrap'
+import { Button, InputGroup, FormControl, Alert, Card, Container, Col, Row } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import produce from 'immer';
 
@@ -38,11 +38,14 @@ export default function Log() {
   return (
     <div>
       <>
-      <input id="noteinput" style={{ width: '80%' }} type="text" placeholder="Enter a new note" />
-      <button onClick={() => handleClick()}>Add note</button>
-      <Notes data={data} />
-    </>
-      
+        <InputGroup className="mt-1">
+          <InputGroup.Text>Note</InputGroup.Text>
+          <FormControl id="noteinput" as="textarea" aria-label="With textarea"
+          placeholder="Include chapters, page numbers, etc." />
+        </InputGroup>
+          <Button className="mt-2 mb-2" onClick={() => handleClick()}>Add note</Button>
+          <Notes data={data} />
+      </>
     </div>
   )
 }
