@@ -31,7 +31,8 @@ export default function Login() {
     <div>
       <Card className="shadow p-3">
         <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
+          <h1 className="text-center mb-4">Welcome to BookBud.</h1>
+          <h3 className="text-center mb-4">Log In</h3>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">

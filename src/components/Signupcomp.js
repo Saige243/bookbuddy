@@ -38,7 +38,7 @@ export default function Signupcomp() {
     <div>
       <Card className="shadow p-3">
         <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
+          <h2 className="text-center mb-4">Love reading? You'll love Bookbud. Join Now.</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">

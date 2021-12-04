@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Button, Alert, Card, Container, Col, Row } from 'react-bootstrap'
 import Timer from '../components/Timer'
 import Navbar from './Navbar'
+import Log from './Log'
 import  '../App.css'  
 
 
 export default function Dashboard() {
-  
 
   return (
     <div>
@@ -25,10 +25,22 @@ export default function Dashboard() {
             <Col className="p-3"xs={12} sm={6} md={6}>
               <Card className="text-center" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
-                  <Card.Title >Reading Timer</Card.Title>
+                  <Card.Title>Reading Timer</Card.Title>
                   <Timer />
                 </Card.Body>
               </Card>
+              <Card className="mt-2" style={{ width: '100%' }}>
+                <Card.Body className="shadow sm">
+                  <Card.Title className="text-center">Reading Log</Card.Title>
+                  <Log />
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            </Col>
+            <Col>
             </Col>
           </Row>
       </Container>
