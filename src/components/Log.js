@@ -1,52 +1,23 @@
 import React from 'react'
-import { Button, InputGroup, FormControl, Alert, Card, Container, Col, Row } from 'react-bootstrap'
-import { useState, useEffect } from 'react';
-import produce from 'immer';
+import { Button, OverlayTrigger, Tooltip, Alert, Card, Container, Col, Row } from 'react-bootstrap'
 
 
-const Notes = props => props.data.map(note => <div>{note.text}</div>);
+const renderTooltip = (props) => (
+  <Tooltip id="button-tooltip" {...props}>
+    <Button>Click me!</Button>
+  </Tooltip>
+);
 
 export default function Log() {
-  const initialData = [{ text: 'Loading Notes ... ' }];
-  const [data, setData] = useState(initialData);
-
-  const handleClick = () => {
-    const text = document.querySelector('#noteinput').value.trim();
-    if (text) {
-      const nextState = produce(data, draftState => {
-        draftState.push({ text });
-      });
-      document.querySelector('#noteinput').value = '';
-
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('data', JSON.stringify(nextState));
-      }
-
-      setData(nextState);
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const getData = localStorage.getItem('data');
-
-      if (getData !== '' && getData !== null) {
-        return setData(JSON.parse(getData));
-      }
-      return setData([]);
-    }
-  }, 0);
   return (
     <div>
-      <>
-        <InputGroup className="mt-1">
-          <InputGroup.Text>Note</InputGroup.Text>
-          <FormControl id="noteinput" as="textarea" aria-label="With textarea"
-          placeholder="Include chapters, page numbers, etc." />
-        </InputGroup>
-          <Button className="mt-2 mb-2" onClick={() => handleClick()}>Add note</Button>
-          <Notes data={data} />
-      </>
+      <OverlayTrigger
+        placement="right"
+        delay={{ show: 250, hide: 400 }}
+        overlay={renderTooltip}
+      >
+        <Button variant="success">Hover me to see</Button>
+      </OverlayTrigger>
     </div>
   )
 }

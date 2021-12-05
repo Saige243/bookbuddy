@@ -7,3 +7,6 @@
 • Fix google API & 404 error screen (comes up completely blank w/ errors).
 
 • Figure out color scheme!
+  f79256
+
+• Logs out on refresh... fix this.

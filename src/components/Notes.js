@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Alert, Card, Container, Col, Row, InputGroup, FormControl } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
@@ -50,7 +52,7 @@ export default function App() {
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Example text area</Form.Label>
+        <Form.Label>Thoughts & Things:</Form.Label>
         <Form.Control as="textarea" rows={3} />
         <Button className="mt-2" variant="primary" type="submit">
           Submit
@@ -61,11 +63,10 @@ export default function App() {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.text} <Button onClick={() => handleDeleteClick(todo.id)}>X</Button>
+            {todo.text} <Button variant="outline-primary" size="sm" onClick={() => handleDeleteClick(todo.id)}><FontAwesomeIcon icon={faTrash} /></Button>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
