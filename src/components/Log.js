@@ -3,6 +3,7 @@ import { Button, InputGroup, FormControl, Alert, Card, Container, Col, Row } fro
 import { useState, useEffect } from 'react';
 import produce from 'immer';
 
+
 const Notes = props => props.data.map(note => <div>{note.text}</div>);
 
 export default function Log() {

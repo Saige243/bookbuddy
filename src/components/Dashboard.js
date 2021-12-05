@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Alert, Card, Container, Col, Row } from 'react-bootstrap'
 import Timer from '../components/Timer'
+import Notes from './Notes'
 import Navbar from './Navbar'
 import Log from './Log'
 import  '../App.css'  
@@ -32,7 +33,7 @@ export default function Dashboard() {
               <Card className="mt-2" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
                   <Card.Title className="text-center">Reading Log</Card.Title>
-                  <Log />
+                  <Notes />
                 </Card.Body>
               </Card>
             </Col>
