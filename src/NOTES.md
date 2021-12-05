@@ -10,3 +10,5 @@
   f79256
 
 • Logs out on refresh... fix this.
+
+• Clear submit form after writing in it upon submit.

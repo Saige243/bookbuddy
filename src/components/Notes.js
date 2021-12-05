@@ -63,10 +63,26 @@ export default function App() {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.text} <Button variant="outline-primary" size="sm" onClick={() => handleDeleteClick(todo.id)}><FontAwesomeIcon icon={faTrash} /></Button>
+            {todo.text} <Button variant="link" size="sm" onClick={() => handleDeleteClick(todo.id)}><FontAwesomeIcon icon={faTrash} /></Button>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
+
+
+
+
+
+{/* <ul className="todo-list">
+        {todos.map((todo) => (
+          <div style={{ display: "grid" }}>
+            <li key={todo.id}>
+              {todo.text} 
+            </li> <Button style={{ display: "grid", justifyItems: "end" }} variant="link" size="sm" onClick={() => handleDeleteClick(todo.id)}><FontAwesomeIcon icon={faTrash} /></Button>
+          </div>
+        ))}
+      </ul>
+    </div> */}
