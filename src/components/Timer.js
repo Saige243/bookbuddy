@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Alert, Card } from 'react-bootstrap'
+import { Button, Alert, Card, Container } from 'react-bootstrap'
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
@@ -28,9 +28,14 @@ const Timer = () => {
 
   return (
     <div className="timercontainer">
-      <div className="time">
-        {seconds}
-      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}>
+        <div>
+        </div>
+        <Container style={{ justifyContent: "" }}>
+          <Container className="time">{seconds}</Container>
+        </Container>
+        <div></div>
+    </div>
       <div className="row">
         <Button size="sm" className={`mb-1 ${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
           {isActive ? 'Pause' : 'Start'}
