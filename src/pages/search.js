@@ -8,9 +8,7 @@ export default function search() {
     <div>
       <div className="booksearch">
         <Navbar />
-        <Container className="searchcontainer">
-          <Booksearch />
-        </Container>
+        <Booksearch />
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
+import { Alert, Card, Container, Col, Row } from 'react-bootstrap'
 
 
 
@@ -26,22 +27,25 @@ export default function Booksearch() {
 
   return (
     <div>
-      <div className="bookContainer">
+      <div className="bookcontainer">
         <h1>Search For Books</h1>
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="Search For Books" autoComplete="on"></input>
           </div>
-          <Button type="submit"     className="btn">Search</Button>
+          <Button style={{ marginTop: "7px" }}type="submit" className="btn">Search</Button>
         </form>
+      </div>
         {result.map(book => (
           <>
-            <a target=" blank" a href={book.volumeInfo.previewLink}>
-            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
-            <p>{book.volumeInfo.title}</p>
+            <Container fluid style={{ width: "15rem", textAlign: "center", display: "inline-grid" }} className="">
+              <a target=" blank" a href={book.volumeInfo.previewLink}>
+              <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+              <h4>{book.volumeInfo.title}</h4>
+              <h6>{book.volumeInfo.authors}</h6>
+            </Container>
           </>
         ))}
       </div>
-    </div>
   )
 }
