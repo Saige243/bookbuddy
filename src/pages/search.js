@@ -1,13 +1,16 @@
 import React from 'react'
 import Booksearch from '../components/Booksearch'
 import Navbar from '../components/Navbar'
+import { Button, Alert, Card, Container, Col, Row } from 'react-bootstrap'
 
 export default function search() {
   return (
-    <div className="searchcontainer">
+    <div>
       <div className="booksearch">
         <Navbar />
-        <Booksearch />
+        <Container className="searchcontainer">
+          <Booksearch />
+        </Container>
       </div>
     </div>
   )

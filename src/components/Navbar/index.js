@@ -44,16 +44,16 @@ export default function Navbar() {
             <Dropdown />
             <NavMenu>
                 <NavLink className="navlink" to="/dash" activeStyle>
-                  <FontAwesomeIcon icon={faHome} />
+                  <FontAwesomeIcon size="lg" icon={faHome} />
                 </NavLink>
                 <NavLink to="/search" activeStyle>
-                  <FontAwesomeIcon icon={faBook} />
+                  <FontAwesomeIcon size="lg" icon={faBook} />
                 </NavLink>
                 <NavLink to="/library" activeStyle>
-                  <FontAwesomeIcon icon={faBookOpen} />
+                  <FontAwesomeIcon size="lg" icon={faBookOpen} />
                 </NavLink>
                 <NavLink to='/' onClick={handleLogout}>
-                  <FontAwesomeIcon icon={faSignOutAlt} />
+                  <FontAwesomeIcon size="lg" icon={faSignOutAlt} />
                 </NavLink>
             </NavMenu> 
            </Nav> 

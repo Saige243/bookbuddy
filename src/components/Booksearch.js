@@ -32,11 +32,14 @@ export default function Booksearch() {
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="Search For Books" autoComplete="on"></input>
           </div>
-          <Button type="submit" className="btn">Search</Button>
+          <Button type="submit"     className="btn">Search</Button>
         </form>
         {result.map(book => (
-          <a target=" blank" a href={book.volumeInfo.previewLink}>
-          <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+          <>
+            <a target=" blank" a href={book.volumeInfo.previewLink}>
+            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+            <p>{book.volumeInfo.title}</p>
+          </>
         ))}
       </div>
     </div>
