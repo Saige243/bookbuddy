@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import { Alert, Card, Container, Popover, OverlayTrigger, Col, Row } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Booksearch() {
@@ -13,7 +15,7 @@ export default function Booksearch() {
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>
-        <Button size="sm" style={{ marginRight: "2px" }}>+ Library</Button>
+        <Button size="sm" style={{ marginRight: "2px" }}> Library</Button>
         <Button size="sm">+ Now Reading</Button>
       </Popover.Body>
     </Popover>
@@ -54,7 +56,7 @@ export default function Booksearch() {
               <h6>{book.volumeInfo.authors}</h6>
           
               <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                <Button variant="success" style={{ marginTop: "5px", marginBottom: "10px" }}>+</Button>
+                <Button variant="success" style={{ marginTop: "5px", marginBottom: "10px" }} icon={faPlus}><FontAwesomeIcon icon={faPlus} /></Button>
               </OverlayTrigger>
               {/* <Button size="sm">+ Now Reading</Button>
               <Button size="sm">+ My Library</Button> */}
