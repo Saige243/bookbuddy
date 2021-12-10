@@ -22,7 +22,6 @@ export default function Booksearch() {
         <p style={{ marginTop: "5px", textAlign: "center"}}>{word}</p>
       </Popover.Body>
     </Popover>
-
 );
 
   function libraryPhrase(){
@@ -31,6 +30,7 @@ export default function Booksearch() {
 
   function readingPhrase(){
     setWord("Added to Now Reading!")
+    // just need to grab the image from the book and put it as the image in the now reading container.
   }
 
   function clearState(){
@@ -73,11 +73,12 @@ export default function Booksearch() {
               <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
                 <Button onClick={clearState} variant="success" style={{ marginTop: "5px", marginBottom: "10px" }} icon={faPlus}><FontAwesomeIcon icon={faPlus} /></Button>
               </OverlayTrigger>
-              {/* <Button size="sm">+ Now Reading</Button>
-              <Button size="sm">+ My Library</Button> */}
             </Container>
           </>
         ))}
       </div>
   )
 }
+
+
+

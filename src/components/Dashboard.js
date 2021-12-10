@@ -5,9 +5,11 @@ import Notes from './Notes'
 import Navbar from './Navbar'
 import Log from './Log'
 import  '../App.css'  
-
+// import { book } from './Booksearch'
 
 export default function Dashboard() {
+  const [img, setImg] = useState("")
+
 
   return (
     <div>
@@ -18,7 +20,7 @@ export default function Dashboard() {
             <Card className="text-center" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
                   <Card.Title >Now Reading</Card.Title>
-                  <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                  <Card.Img variant="top" src="holder.js/80px180?text=Image cap" />{img}
                   <Card.Subtitle className="mt-2">Progress:</Card.Subtitle>
                 </Card.Body>
               </Card>

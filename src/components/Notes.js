@@ -13,6 +13,10 @@ export default function App() {
     }
   });
   const [todo, setTodo] = useState("");
+  const [field, setField] = useState("");
+
+
+
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -34,8 +38,7 @@ export default function App() {
         }
       ]);
     }
-
-    setTodo("");
+    return field;
   }
 
   function handleDeleteClick(id) {
