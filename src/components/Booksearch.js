@@ -33,6 +33,9 @@ export default function Booksearch() {
     setWord("Added to Now Reading!")
   }
 
+  function clearState(){
+    setWord("")
+  }
 
   function handleChange(e){
     const book = e.target.value;
@@ -67,8 +70,8 @@ export default function Booksearch() {
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
           
-              <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-                <Button variant="success" style={{ marginTop: "5px", marginBottom: "10px" }} icon={faPlus}><FontAwesomeIcon icon={faPlus} /></Button>
+              <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
+                <Button onClick={clearState} variant="success" style={{ marginTop: "5px", marginBottom: "10px" }} icon={faPlus}><FontAwesomeIcon icon={faPlus} /></Button>
               </OverlayTrigger>
               {/* <Button size="sm">+ Now Reading</Button>
               <Button size="sm">+ My Library</Button> */}
