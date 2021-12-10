@@ -4,23 +4,35 @@ import Button from 'react-bootstrap/Button'
 import { Alert, Card, Container, Popover, OverlayTrigger, Col, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 
 export default function Booksearch() {
 
   const [book, setBook] = useState("")
+  const [word, setWord] = useState("")
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
 
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>
-        <Button size="sm" style={{ marginRight: "2px" }}> Library</Button>
-        <Button size="sm">+ Now Reading</Button>
+        <Button onClick={libraryPhrase} size="sm" style={{ marginRight: "2px" }}> + to Library</Button>
+        <Button onClick={readingPhrase} size="sm">+ to Now Reading</Button>
+        <p style={{ marginTop: "5px", textAlign: "center"}}>{word}</p>
       </Popover.Body>
     </Popover>
 
 );
+
+  function libraryPhrase(){
+    setWord("Added to Library!")
+  }
+
+  function readingPhrase(){
+    setWord("Added to Now Reading!")
+  }
+
 
   function handleChange(e){
     const book = e.target.value;
