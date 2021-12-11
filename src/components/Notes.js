@@ -13,10 +13,17 @@ export default function App() {
     }
   });
   const [todo, setTodo] = useState("");
-  const [field, setField] = useState("");
+  const [inputvalue, setInputValue] = useState("");
 
 
 
+  function handleUserInput(e){
+    setInputValue(e.target.value);
+  }
+
+  function resetInputField() {
+    setInputValue("");
+  }
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -38,7 +45,6 @@ export default function App() {
         }
       ]);
     }
-    return field;
   }
 
   function handleDeleteClick(id) {
@@ -56,8 +62,8 @@ export default function App() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Thoughts & Things:</Form.Label>
-        <Form.Control as="textarea" rows={3} />
-        <Button className="mt-2" variant="primary" type="submit">
+        <Form.Control as="textarea" value={inputvalue} onChange={handleUserInput} rows={3}></Form.Control>
+        <Button onClick={resetInputField} className="mt-2" variant="primary" type="submit">
           Submit
         </Button>
         </Form.Group>
