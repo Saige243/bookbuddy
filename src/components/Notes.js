@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Form, Alert, Card, Container, Col, Row, InputGroup, FormControl } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import Booksearch from './Booksearch'
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
@@ -14,7 +15,12 @@ export default function App() {
   });
   const [todo, setTodo] = useState("");
   const [inputvalue, setInputValue] = useState("");
+  const [data, setData] = useState("farty fartys");
 
+
+  const navigating = () => {
+    setData("IT WORKED!!!!")
+  }
 
 
   function handleUserInput(e){
@@ -68,7 +74,7 @@ export default function App() {
         </Button>
         </Form.Group>
       </Form>
-      
+
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
@@ -79,19 +85,3 @@ export default function App() {
     </div>
   );
 }
-
-
-
-
-
-
-{/* <ul className="todo-list">
-        {todos.map((todo) => (
-          <div style={{ display: "grid" }}>
-            <li key={todo.id}>
-              {todo.text} 
-            </li> <Button style={{ display: "grid", justifyItems: "end" }} variant="link" size="sm" onClick={() => handleDeleteClick(todo.id)}><FontAwesomeIcon icon={faTrash} /></Button>
-          </div>
-        ))}
-      </ul>
-    </div> */}

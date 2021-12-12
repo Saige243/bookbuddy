@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Link } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import { Alert, Card, Container, Popover, OverlayTrigger, Col, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { text } from '@fortawesome/fontawesome-svg-core';
+import Notes from './Notes'
 
 
 export default function Booksearch() {
@@ -20,6 +21,7 @@ export default function Booksearch() {
         <Button onClick={libraryPhrase} size="sm" style={{ marginRight: "2px" }}> + to Library</Button>
         <Button onClick={readingPhrase} size="sm">+ to Now Reading</Button>
         <p style={{ marginTop: "5px", textAlign: "center"}}>{word}</p>
+        <Button size="sm" style={{ width:"100%",textAlign: "center" }}>Book Description</Button>
       </Popover.Body>
     </Popover>
 );
@@ -61,12 +63,13 @@ export default function Booksearch() {
           </div>
           <Button style={{ marginTop: "7px" }}type="submit" className="btn">Search</Button>
         </form>
+
       </div>
         {result.map(book => (
           <>
             <Container fluid style={{ width: "15rem", textAlign: "center", display: "inline-grid" }} className="">
               <a target=" blank" a href={book.volumeInfo.previewLink}>
-              <img style={{ width: "9rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+              <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
           

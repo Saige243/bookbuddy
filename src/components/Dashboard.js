@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Alert, Card, Container, Col, Row } from 'react-bootstrap'
+import Booksearch from './Booksearch'
 import Timer from '../components/Timer'
 import Notes from './Notes'
 import Navbar from './Navbar'
@@ -9,6 +10,7 @@ import  '../App.css'
 
 export default function Dashboard() {
   const [img, setImg] = useState("")
+
 
 
   return (
@@ -41,7 +43,10 @@ export default function Dashboard() {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col style={{ display:"grid", alignItems: "center", textAlign: "center" }}xl="12">
+              <Card className="shadow sm">
+                <Booksearch />
+              </Card>
             </Col>
             <Col>
             </Col>
