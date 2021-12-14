@@ -11,7 +11,9 @@ import  '../App.css'
 export default function Dashboard() {
   const [img, setImg] = useState("")
 
-
+  function changeImage(){
+    setImg('TESTING YOU EH! YOU GOT IT!')
+  }
 
   return (
     <div>
@@ -22,8 +24,9 @@ export default function Dashboard() {
             <Card className="text-center" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
                   <Card.Title >Now Reading</Card.Title>
-                  <Card.Img variant="top" src="holder.js/80px180?text=Image cap" />{img}
+                  <Card.Img variant="top" src={img} />
                   <Card.Subtitle className="mt-2">Progress:</Card.Subtitle>
+                  <p>{img}</p>
                 </Card.Body>
               </Card>
             </Col>
@@ -45,7 +48,8 @@ export default function Dashboard() {
           <Row>
             <Col style={{ display:"grid", alignItems: "center", textAlign: "center" }}xl="12">
               <Card className="shadow sm">
-                <Booksearch />
+                <Booksearch changeImage={changeImage}/>
+                <Button onClick={changeImage}>CHANGE</Button>
               </Card>
             </Col>
             <Col>
