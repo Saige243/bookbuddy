@@ -12,7 +12,7 @@ export default function Dashboard() {
   const [img, setImg] = useState("")
 
   function changeImage(){
-    setImg('TESTING YOU EH! YOU GOT IT!')
+    setImg('IT WERKED')
   }
 
   return (
@@ -49,7 +49,6 @@ export default function Dashboard() {
             <Col style={{ display:"grid", alignItems: "center", textAlign: "center" }}xl="12">
               <Card className="shadow sm">
                 <Booksearch changeImage={changeImage}/>
-                <Button onClick={changeImage}>CHANGE</Button>
               </Card>
             </Col>
             <Col>

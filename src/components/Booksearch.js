@@ -10,12 +10,12 @@ import Notes from './Notes'
 
 export default function Booksearch({changeImage}) {
 
-
   const data = "Done did it."
   const [book, setBook] = useState("")
   const [word, setWord] = useState("")
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
+
 
   const popover = (
     <Popover id="popover-basic">
@@ -30,6 +30,7 @@ export default function Booksearch({changeImage}) {
 
   function libraryPhrase(){
     setWord("Added to Library!")
+    changeImage()
   }
 
   function readingPhrase(){
@@ -59,7 +60,6 @@ export default function Booksearch({changeImage}) {
     <div>
       <div className="bookcontainer">
         <h1>Search For Books</h1>
-        <Button primary onClick={() => changeImage(data)}>CLICK CHILD</Button>
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
