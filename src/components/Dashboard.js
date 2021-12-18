@@ -6,14 +6,10 @@ import Notes from './Notes'
 import Navbar from './Navbar'
 import Log from './Log'
 import  '../App.css'  
-// import { book } from './Booksearch'
+
 
 export default function Dashboard() {
-  const [img, setImg] = useState("")
 
-  function changeImage(){
-    setImg('IT WERKED')
-  }
 
   return (
     <div>
@@ -24,9 +20,8 @@ export default function Dashboard() {
             <Card className="text-center" style={{ width: '100%' }}>
                 <Card.Body className="shadow sm">
                   <Card.Title >Now Reading</Card.Title>
-                  <Card.Img variant="top" src={img} />
+                  <Card.Img variant="top"/>
                   <Card.Subtitle className="mt-2">Progress:</Card.Subtitle>
-                  <p>{img}</p>
                 </Card.Body>
               </Card>
             </Col>
@@ -48,7 +43,7 @@ export default function Dashboard() {
           <Row>
             <Col style={{ display:"grid", alignItems: "center", textAlign: "center" }}xl="12">
               <Card className="shadow sm">
-                <Booksearch changeImage={changeImage}/>
+                <Booksearch />
               </Card>
             </Col>
             <Col>

@@ -1,4 +1,4 @@
-import React, { useState, Link } from 'react';
+import React, { useState, Link, Img, useContext, createContext } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import { Alert, Card, Container, Popover, OverlayTrigger, Col, Row } from 'react-bootstrap'
@@ -8,13 +8,12 @@ import { text } from '@fortawesome/fontawesome-svg-core';
 import Notes from './Notes'
 
 
-export default function Booksearch({changeImage}) {
-
-  const data = "Done did it."
+export default function Booksearch() {
   const [book, setBook] = useState("")
   const [word, setWord] = useState("")
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
+  const Context = createContext('Default Value');
 
 
   const popover = (
@@ -30,12 +29,11 @@ export default function Booksearch({changeImage}) {
 
   function libraryPhrase(){
     setWord("Added to Library!")
-    changeImage()
+    // changeImage()
   }
 
   function readingPhrase(){
     setWord("Added to Now Reading!")
-    // just need to grab the image from the book and put it as the image in the now reading container.
   }
 
   function clearState(){
@@ -45,6 +43,7 @@ export default function Booksearch({changeImage}) {
   function handleChange(e){
     const book = e.target.value;
     setBook(book);
+    console.log(book)
 
   }
   function handleSubmit(e){
@@ -56,25 +55,36 @@ export default function Booksearch({changeImage}) {
     })
   }
 
+  const test = "context value here batch";
+
+  function MyComponent(){
+    const test = useContext(Context);
+
+    return <span>{test}</span>
+  }
+
   return (
     <div>
       <div className="bookcontainer">
         <h1>Search For Books</h1>
+        
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
           </div>
+          <Context.Provider value={test}></Context.Provider>
           <Button style={{ marginTop: "7px" }}type="submit" className="btn">Search</Button>
         </form>
-
       </div>
         {result.map(book => (
           <>
             <Container fluid style={{ width: "15rem", textAlign: "center", display: "inline-grid" }} className="">
-              <a target=" blank" a href={book.volumeInfo.previewLink}>
+              <a target="blank" a href={book.volumeInfo.previewLink}>
               <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
+              <Button onClick={MyComponent}>Set Result</Button>
+
           
               <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
                 <Button onClick={clearState} variant="success" style={{ marginTop: "5px", marginBottom: "10px" }} icon={faPlus}><FontAwesomeIcon icon={faPlus} /></Button>
