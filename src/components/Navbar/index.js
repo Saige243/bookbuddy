@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <div>
       <Nav>
-            <NavLogo to="/dash">
+            <NavLogo className={"logo"} to="/dash">
                 BookBud
             </NavLogo>
             {/* <Bars /> */}

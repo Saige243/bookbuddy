@@ -17,6 +17,7 @@ export const NavLogo = styled(Link)`
   font-size: 2rem;
   text-decoration: none;
   padding: 10px;
+  font-family: 'Anton', sans-serif;
 
 `;
 
