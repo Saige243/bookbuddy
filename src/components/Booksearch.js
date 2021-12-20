@@ -13,7 +13,6 @@ export default function Booksearch() {
   const [word, setWord] = useState("")
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
-  const Context = createContext('Default Value');
 
 
   const popover = (
@@ -55,24 +54,28 @@ export default function Booksearch() {
     })
   }
 
-  const test = "context value here batch";
 
-  function MyComponent(){
-    const test = useContext(Context);
 
-    return <span>{test}</span>
+  function imageSet(e){
+    setBook(e.target.value)
+    
   }
 
   return (
     <div>
       <div className="bookcontainer">
+        <div>Now Reading</div>
+
+        <div>{result.map(book =>(
+          <a target="blank" a href={book.volumeInfo.previewLink}>
+          <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+        ))}</div>
         <h1>Search For Books</h1>
         
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
           </div>
-          <Context.Provider value={test}></Context.Provider>
           <Button style={{ marginTop: "7px" }}type="submit" className="btn">Search</Button>
         </form>
       </div>
@@ -83,7 +86,7 @@ export default function Booksearch() {
               <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
-              <Button onClick={MyComponent}>Set Result</Button>
+              <Button onClick={imageSet}>Set Result</Button>
 
           
               <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
