@@ -12,7 +12,9 @@ export default function Booksearch() {
   const [book, setBook] = useState("")
   const [word, setWord] = useState("")
   const [result, setResult] = useState([]);
-  const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
+  const [apiKey, setApiKey] = useState
+  ("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
+  const [rslt, setRslt] = useState("");
 
 
   const popover = (
@@ -54,22 +56,25 @@ export default function Booksearch() {
     })
   }
 
-
-
   function imageSet(e){
     setBook(e.target.value)
     
   }
 
+  function resultSet(){
+    setRslt(<div>{result.map(book =>(
+      <a target="blank" a href={book.volumeInfo.previewLink}>
+      <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+    ))}</div>
+  )}
+
+
+
   return (
     <div>
       <div className="bookcontainer">
         <div>Now Reading</div>
-
-        <div>{result.map(book =>(
-          <a target="blank" a href={book.volumeInfo.previewLink}>
-          <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
-        ))}</div>
+          <div>{rslt}</div>
         <h1>Search For Books</h1>
         
         <form onSubmit={handleSubmit}>
@@ -86,7 +91,7 @@ export default function Booksearch() {
               <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
-              <Button onClick={imageSet}>Set Result</Button>
+              <Button onClick={resultSet}>Set Result</Button>
 
           
               <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
