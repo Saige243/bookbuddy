@@ -18,11 +18,9 @@ export default function Dashboard() {
       <Container fluid="lg">
         <Row>
           <Col className="p-3" xs={12} sm={7} md={8}>
-            <Card className="text-center" style={{ width: '100%' }}>
-              <Card.Body className="shadow sm">
+
                 <Booksearch />
-              </Card.Body>
-            </Card>
+
           </Col>
           <Col className="p-3"xs={12} sm={5} md={4}>
             <Card className="text-center" style={{ width: '100%' }}>
@@ -39,7 +37,7 @@ export default function Dashboard() {
             </Card>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col style={{ display:"grid", alignItems: "center", textAlign: "center" }}xl="12">
             <Card className="shadow sm">
               <div>NEW CARD</div>
@@ -47,7 +45,7 @@ export default function Dashboard() {
           </Col>
           <Col>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </div>
 
