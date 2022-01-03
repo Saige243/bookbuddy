@@ -16,7 +16,6 @@ export default function Booksearch() {
   ("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [rslt, setRslt] = useState("");
 
-
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>
@@ -52,17 +51,8 @@ export default function Booksearch() {
   function imageSet(e){
     const i = e.target.src
     setRslt(i)
+
   }
-
-
-
-  // function resultSet(){
-  //   setRslt(<div>{result.map(book =>(
-  //     <a target="blank" a href={book.volumeInfo.previewLink}>
-  //     <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
-  //   ))}</div>
-  // )}
-
 
   function handleSubmit(e){
     e.preventDefault();
@@ -73,14 +63,14 @@ export default function Booksearch() {
   }
 
 
-
   return (
     <div>
       <div className="bookcontainer">
-        <div>Now Reading</div>
+          <h3>Now Reading</h3>
           <div><img alt="" src={rslt}></img></div>
-        <h1>Search For Books</h1>
-        
+          <Button style={{marginTop: "10px", marginBottom: "30px"}} onClick={imageSet}>Clear Now Reading</Button>
+        <h1>Book Search</h1>
+          <h7>Click a book to add to Now Reading</h7>
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
@@ -90,13 +80,12 @@ export default function Booksearch() {
       </div>
         {result.map(book => (
           <>
-            <Container fluid style={{ width: "15rem", textAlign: "center", display: "inline-grid" }} className="">
+            <Container fluid style={{ width: "15rem", textAlign: "center", justifyContent:"center", display: "inline-grid", margin: "7px" }} className="">
               {/* <a target="blank" a href={book.volumeInfo.previewLink} onClick={imageSet}> */}
               {/* <a target="blank" a href={book.volumeInfo.previewLink} onClick={(e) => console.log(e.target.src)}> */}
               <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
-              <Button onClick={imageSet}>Set Result</Button>
 
           
               <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
@@ -111,3 +100,27 @@ export default function Booksearch() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // function resultSet(){
+  //   setRslt(<div>{result.map(book =>(
+  //     <a target="blank" a href={book.volumeInfo.previewLink}>
+  //     <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+  //   ))}</div>
+  // )}
