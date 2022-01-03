@@ -69,7 +69,7 @@ export default function Booksearch() {
 
   function handleSubmit(e){
     e.preventDefault();
-    axios.get("https://www.googleapis.com/books/v1/volumes?q="+ book + "&key=" + apiKey + "&maxResults=30").then(data => {
+    axios.get("https://www.googleapis.com/books/v1/volumes?q="+ book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
       console.log(data.data.items)
     })
@@ -90,7 +90,7 @@ export default function Booksearch() {
 
 
         <Card className="mt-2 shadow sm h-100" style={{ width: '100%'}}>
-          <h1 style={{ paddingTop: "30px" }}>Book Search</h1>
+          <h1 style={{ paddingTop: "20px" }}>Book Search</h1>
             <div style={{marginBottom: "20px"}}>
             </div>
             <form onSubmit={handleSubmit}>
@@ -104,17 +104,17 @@ export default function Booksearch() {
             <Card.Body className="shadow-sm">
               {result.map(book => (
                 <>
-                  <Container fluid style={{ width: "10rem", textAlign: "center", justifyContent:"center", display: "inline-grid", margin: "3px" }} className="">
-                    {/* <a target="blank" a href={book.volumeInfo.previewLink} onClick={imageSet}> */}
-                    {/* <a target="blank" a href={book.volumeInfo.previewLink} onClick={(e) => console.log(e.target.src)}> */}
-                    <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
-                    <h5>{book.volumeInfo.title}</h5>
-                    <h6>{book.volumeInfo.authors}</h6>
+                  <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent:"center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
 
-                
+                    <img style={{ width: "6rem", height:"fill", marginBottom:"10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
+                    
+
                     <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
-                      <Button onClick={clearState} variant="success" style={{ marginTop: "5px", marginBottom: "10px" }} icon={faPlus}><FontAwesomeIcon icon={faPlus} /></Button>
+                      <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
                     </OverlayTrigger>
+                    <div style={{ fontSize: "11px" }}>
+                      <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
+                    </div>
                   </Container>
                 </>
               ))}

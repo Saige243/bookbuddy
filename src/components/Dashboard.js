@@ -17,12 +17,12 @@ export default function Dashboard() {
       <Navbar />
       <Container fluid="lg">
         <Row>
-          <Col className="p-3" xs={12} sm={7} md={8}>
+          <Col className="p-3" xs={12} sm={12} md={8}>
 
                 <Booksearch />
 
           </Col>
-          <Col className="p-3"xs={12} sm={5} md={4}>
+          <Col className="p-3"xs={12} sm={12} md={4}>
             <Card className="text-center" style={{ width: '100%' }}>
               <Card.Body className="shadow sm">
                 <Card.Title>Reading Timer</Card.Title>
