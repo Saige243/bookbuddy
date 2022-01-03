@@ -11,10 +11,12 @@ import Notes from './Notes'
 export default function Booksearch() {
   const [book, setBook] = useState("")
   const [word, setWord] = useState("")
+  const [butt, setButt] = useState("")
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState
   ("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [rslt, setRslt] = useState("");
+  const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
 
   const popover = (
     <Popover id="popover-basic">
@@ -48,10 +50,21 @@ export default function Booksearch() {
     console.log(book)
   }
 
+  function clearReading(e){
+    const clear = ""
+    setRslt(clear)
+    setButt(clear)
+    setReadingStatus("Click a book below to add to Now Reading")
+  }
+
   function imageSet(e){
     const i = e.target.src
     setRslt(i)
+    setButt(
+    <Button style={{marginTop: "10px", marginBottom: "30px"}} onClick={clearReading}>Clear Now Reading</Button>)
+    setReadingStatus("")
 
+    
   }
 
   function handleSubmit(e){
@@ -66,11 +79,18 @@ export default function Booksearch() {
   return (
     <div>
       <div className="bookcontainer">
-          <h3>Now Reading</h3>
-          <div><img alt="" src={rslt}></img></div>
-          <Button style={{marginTop: "10px", marginBottom: "30px"}} onClick={imageSet}>Clear Now Reading</Button>
+        <Card>
+          <Card.Body className="shadow sm">
+            <h1>Now Reading</h1>
+            <h7>{readingStatus}</h7>
+            <div>{butt}</div>
+            <div><img className="readingimg" alt="" src={rslt}></img></div>
+          </Card.Body>
+        </Card>
+          {/* <Button style={{marginTop: "10px", marginBottom: "30px"}} onClick={imageSet}>Clear Now Reading</Button> */}
         <h1>Book Search</h1>
-          <h7>Click a book to add to Now Reading</h7>
+          <div style={{marginBottom: "20px"}}>
+          </div>
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
             <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>

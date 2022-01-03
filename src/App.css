@@ -97,6 +97,11 @@
   text-align: center;
 }
 
+.readingimg{
+  width: 12rem;
+  margin-bottom: 25px;
+}
+
 .bookcontainer{
   text-align: center;
   padding-bottom: 20px;
