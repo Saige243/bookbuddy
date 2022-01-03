@@ -28,6 +28,8 @@ export default function Booksearch() {
     </Popover>
 );
 
+
+
   function libraryPhrase(){
     setWord("Added to Library!")
     // changeImage()
@@ -45,28 +47,30 @@ export default function Booksearch() {
     const book = e.target.value;
     setBook(book);
     console.log(book)
-
   }
+
+  function imageSet(e){
+    const i = e.target.src
+    setRslt(i)
+  }
+
+
+
+  // function resultSet(){
+  //   setRslt(<div>{result.map(book =>(
+  //     <a target="blank" a href={book.volumeInfo.previewLink}>
+  //     <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
+  //   ))}</div>
+  // )}
+
+
   function handleSubmit(e){
     e.preventDefault();
-    
     axios.get("https://www.googleapis.com/books/v1/volumes?q="+ book + "&key=" + apiKey + "&maxResults=30").then(data => {
       setResult(data.data.items)
       console.log(data.data.items)
     })
   }
-
-  function imageSet(e){
-    setBook(e.target.value)
-    
-  }
-
-  function resultSet(){
-    setRslt(<div>{result.map(book =>(
-      <a target="blank" a href={book.volumeInfo.previewLink}>
-      <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
-    ))}</div>
-  )}
 
 
 
@@ -74,7 +78,8 @@ export default function Booksearch() {
     <div>
       <div className="bookcontainer">
         <div>Now Reading</div>
-          <div>{rslt}</div>
+          <div><img src={rslt}></img></div>
+          {/* <img alt="franzen" src="http://books.google.com/books/content?id=FodGfz5li5wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" /> */}
         <h1>Search For Books</h1>
         
         <form onSubmit={handleSubmit}>
@@ -87,11 +92,12 @@ export default function Booksearch() {
         {result.map(book => (
           <>
             <Container fluid style={{ width: "15rem", textAlign: "center", display: "inline-grid" }} className="">
-              <a target="blank" a href={book.volumeInfo.previewLink}>
+              <a target="blank" a href={book.volumeInfo.previewLink} onClick={imageSet}>
+              {/* <a target="blank" a href={book.volumeInfo.previewLink} onClick={(e) => console.log(e.target.src)}> */}
               <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
               <h5>{book.volumeInfo.title}</h5>
               <h6>{book.volumeInfo.authors}</h6>
-              <Button onClick={resultSet}>Set Result</Button>
+              <Button onClick={imageSet}>Set Result</Button>
 
           
               <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
