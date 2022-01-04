@@ -21,10 +21,10 @@ export default function Booksearch() {
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>
-        <Button onClick={libraryPhrase} size="sm" style={{ marginRight: "2px" }}> + to Library</Button>
-        <Button onClick={readingPhrase} size="sm">+ to Now Reading</Button>
+        <Button onClick={libraryPhrase} size="sm" style={{ border: "none", backgroundColor: "#97D9E1", marginRight: "2px" }}> + to Library</Button>
+        <Button style={{ border: "none", backgroundColor: "#97D9E1"}} onClick={readingPhrase} size="sm">+ to Now Reading</Button>
         <p style={{ marginTop: "5px", textAlign: "center"}}>{word}</p>
-        <Button size="sm" style={{ width:"100%",textAlign: "center" }}>Book Description</Button>
+        <Button size="sm" style={{ border: "none", backgroundColor: "#97D9E1",width:"100%",textAlign: "center" }}>Book Description</Button>
       </Popover.Body>
     </Popover>
 );
@@ -61,10 +61,8 @@ export default function Booksearch() {
     const i = e.target.src
     setRslt(i)
     setButt(
-    <Button size="sm" style={{marginTop: "10px", backgroundColor:"#303179", marginBottom: "30px", border: "none"}} onClick={clearReading}>Clear Now Reading</Button>)
+    <Button size="sm" style={{ fontWeight: "bold", marginTop: "10px", backgroundColor:"#97D9E1", marginBottom: "30px", border: "none"}} onClick={clearReading}>Clear Now Reading</Button>)
     setReadingStatus("")
-
-    
   }
 
   function handleSubmit(e){
@@ -81,7 +79,7 @@ export default function Booksearch() {
       <div className="bookcontainer">
         <Card id="card">
           <Card.Body id="card" className="shadow sm">
-            <h1>Now Reading</h1>
+            <h1 id="heading">Now Reading</h1>
             <h7>{readingStatus}</h7>
             <div>{butt}</div>
             <div><img className="readingimg" alt="" src={rslt}></img></div>
@@ -90,14 +88,14 @@ export default function Booksearch() {
 
 
         <Card id="card" className="mt-2 shadow sm h-100" style={{ width: '100%'}}>
-          <h1 style={{ paddingTop: "20px" }}>Book Search</h1>
+          <h1 id="heading" style={{ paddingTop: "20px" }}>Book Search</h1>
             <div style={{marginBottom: "20px"}}>
             </div>
             <form onSubmit={handleSubmit}>
               <div className="formgroup">
                 <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
               </div>
-              <Button style={{ backgroundColor:"#303179", marginTop: "7px", border: "none" }}type="submit" className="btn">Search</Button>
+              <Button style={{ backgroundColor:"#97D9E1", marginTop: "7px", border: "none" }}type="submit" className="btn"><strong>Search</strong></Button>
             </form>
 
 
@@ -110,7 +108,7 @@ export default function Booksearch() {
                     
 
                     <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
-                      <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", backgroundColor:"#303179", textDecoration:"none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
+                      <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", backgroundColor:"#97D9E1", textDecoration:"none", border: "none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
                     </OverlayTrigger>
                     <div style={{ fontSize: "11px" }}>
                       <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>

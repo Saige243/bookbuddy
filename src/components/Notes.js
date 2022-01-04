@@ -69,8 +69,8 @@ export default function App() {
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Thoughts & Things:</Form.Label>
         <Form.Control as="textarea" value={inputvalue} onChange={handleUserInput} rows={3}></Form.Control>
-        <Button style={{backgroundColor:"#303179", border: "none"}} onClick={resetInputField} className="mt-2" variant="primary" type="submit">
-          Submit
+        <Button style={{backgroundColor:"#97D9E1", border: "none"}} onClick={resetInputField} className="mt-2" variant="primary" type="submit">
+          <strong>Submit</strong>
         </Button>
         </Form.Group>
       </Form>

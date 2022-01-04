@@ -36,9 +36,9 @@ export default function Signupcomp() {
 
   return (
     <div>
-      <Card className="shadow p-3">
+      <Card id="card" className="shadow p-3">
         <Card.Body>
-          <h2 className="text-center mb-4">Love reading? You'll love Bookbud. Join Now.</h2>
+          <h2 id="heading" className="text-center mb-4">Love reading? You'll love Bookbud. Join Now.</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -53,14 +53,14 @@ export default function Signupcomp() {
               <Form.Label className="pt-2">Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
-            <Button disabled={loading} type="submit" className="mt-3 w-100">
-              Sign Up
+            <Button style={{backgroundColor:"#97D9E1", border:"none"}} disabled={loading} type="submit" className="mt-3 w-100">
+              <strong>Sign Up</strong>
             </Button>
           </Form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account? <Link to='/'>Login</Link>
+        Already have an account? <Link style={{color: "white"}} to='/'>Login</Link>
       </div>
     </div>
   )

@@ -15,8 +15,6 @@ import Login from './pages/login'
 import './App.css'
 import PrivateRoute from './components/PrivateRoute'
 
-
-
 function App() {
   return (
       <Container fluid className='p-0'>

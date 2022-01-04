@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 
 export const Nav = styled.nav`
-    background: #ed7966;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.2rem calc((100vw - 1000px) / 2);
-    z-index: 12;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem calc((100vw - 1000px) / 2);
+  z-index: 12;
+  background-color: #97D9E1;
 `;
 export const NavLogo = styled(Link)`
   cursor: pointer;
@@ -17,8 +17,6 @@ export const NavLogo = styled(Link)`
   font-size: 2rem;
   text-decoration: none;
   padding: 10px;
-  font-family: 'Anton', sans-serif;
-
 `;
 
 export const NavLink = styled(Link)`

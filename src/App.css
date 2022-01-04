@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trocchi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
 
-/* 
-*{
-  background-color: #fae5df;
-} */
+
+#heading{
+  font-family: 'Trocchi', serif;
+}
+
+.logo{
+  font-family: 'Sora', sans-serif!important;
+}
 
 .time {
   font-size: 4vw;
@@ -13,7 +18,13 @@
 }
 
 .logo:hover{
-  color: #fae5df;
+  color: #f5cac2;
+}
+
+.loginhome{
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
 }
 
 .DropMenu{

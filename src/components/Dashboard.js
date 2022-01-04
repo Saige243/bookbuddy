@@ -13,7 +13,7 @@ export default function Dashboard() {
 
 
   return (
-    <div >
+    <div>
       <Navbar />
       <Container fluid="lg">
         <Row>
@@ -23,13 +23,13 @@ export default function Dashboard() {
           <Col className="p-3"xs={12} sm={12} md={4}>
             <Card id="card" className="text-center" style={{ width: '100%' }}>
               <Card.Body id="card" className="shadow sm">
-                <Card.Title>Reading Timer</Card.Title>
+                <Card.Title id="heading">Reading Timer</Card.Title>
                 <Timer />
               </Card.Body>
             </Card>
             <Card id="card" className="mt-2" style={{ width: '100%' }}>
               <Card.Body id="card" className="shadow sm">
-                <Card.Title className="text-center">Reading Log</Card.Title>
+                <Card.Title id="heading" className="text-center">Reading Log</Card.Title>
                 <Notes />
               </Card.Body>
             </Card>

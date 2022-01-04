@@ -37,8 +37,8 @@ export default function Navbar() {
   return (
     <div>
       <Nav>
-            <NavLogo className={"logo"} to="/dash">
-                BookBud
+            <NavLogo id="heading" className={"logo"} to="/dash">
+                <strong>BookBud</strong>
             </NavLogo>
             {/* <Bars /> */}
             <Dropdown />
@@ -57,7 +57,6 @@ export default function Navbar() {
                 </NavLink>
             </NavMenu> 
            </Nav> 
-      
     </div>
   )
 }
