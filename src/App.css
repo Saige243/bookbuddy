@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Anton&display=swap');
 
-
+/* 
 *{
-  /* font-family: 'Amiri', serif; */
-}
+  background-color: #fae5df;
+} */
 
 .time {
   font-size: 4vw;
   padding: 2rem;
   width: fit-content;
+}
+
+.logo:hover{
+  color: #fae5df;
 }
 
 .DropMenu{
@@ -129,4 +133,8 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 
+}
+
+#card{
+  border-radius: 15px;
 }

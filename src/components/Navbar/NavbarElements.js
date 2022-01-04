@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const Nav = styled.nav`
-    background: blue;
+    background: #ed7966;
     height: 70px;
     display: flex;
     justify-content: space-between;
@@ -34,7 +34,7 @@ padding: 10px;
   color: white;
 }
 &:hover {
-  color: green;
+  color: #fae5df;
 }
 `;
 

@@ -25,11 +25,11 @@ export default function DropdownMenu() {
   return (
     <div>
       <Dropdown className="DropMenu">
-        <Dropdown.Toggle style={{ backgroundColor: "#f79256" }}variant="info" id="dropdown-basic">
-          Menu
+        <Dropdown.Toggle style={{ backgroundColor: "#f5cac2", border: "none", textDecoration:"none" }}variant="info" id="dropdown-basic">
+          
         </Dropdown.Toggle>
 
-        <Dropdown.Menu style={{ backgroundColor: "#f79256" }}>
+        <Dropdown.Menu style={{ backgroundColor: "#f5cac2" }}>
           <Dropdown.Item>
             <NavLink style={{ textDecoration: 'none', color: 'black' }} to="/dash">Dashboard</NavLink>
           </Dropdown.Item>

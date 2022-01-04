@@ -61,7 +61,7 @@ export default function Booksearch() {
     const i = e.target.src
     setRslt(i)
     setButt(
-    <Button size="sm" style={{marginTop: "10px", marginBottom: "30px"}} onClick={clearReading}>Clear Now Reading</Button>)
+    <Button size="sm" style={{marginTop: "10px", backgroundColor:"#303179", marginBottom: "30px", border: "none"}} onClick={clearReading}>Clear Now Reading</Button>)
     setReadingStatus("")
 
     
@@ -79,8 +79,8 @@ export default function Booksearch() {
   return (
     <div>
       <div className="bookcontainer">
-        <Card>
-          <Card.Body className="shadow sm">
+        <Card id="card">
+          <Card.Body id="card" className="shadow sm">
             <h1>Now Reading</h1>
             <h7>{readingStatus}</h7>
             <div>{butt}</div>
@@ -89,7 +89,7 @@ export default function Booksearch() {
         </Card>
 
 
-        <Card className="mt-2 shadow sm h-100" style={{ width: '100%'}}>
+        <Card id="card" className="mt-2 shadow sm h-100" style={{ width: '100%'}}>
           <h1 style={{ paddingTop: "20px" }}>Book Search</h1>
             <div style={{marginBottom: "20px"}}>
             </div>
@@ -97,7 +97,7 @@ export default function Booksearch() {
               <div className="formgroup">
                 <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
               </div>
-              <Button style={{ marginTop: "7px" }}type="submit" className="btn">Search</Button>
+              <Button style={{ backgroundColor:"#303179", marginTop: "7px", border: "none" }}type="submit" className="btn">Search</Button>
             </form>
 
 
@@ -110,7 +110,7 @@ export default function Booksearch() {
                     
 
                     <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
-                      <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
+                      <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", backgroundColor:"#303179", textDecoration:"none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
                     </OverlayTrigger>
                     <div style={{ fontSize: "11px" }}>
                       <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>

@@ -37,10 +37,10 @@ const Timer = () => {
         <div></div>
     </div>
       <div className="row">
-        <Button size="sm" className={`mb-1 ${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
+        <Button size="sm" style={{backgroundColor:"#303179", border: "none"}} className={`mb-1 ${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
           {isActive ? 'Pause' : 'Start'}
         </Button>
-        <Button size="sm" onClick={reset}>
+        <Button size="sm" style={{backgroundColor:"#303179", border: "none"}} onClick={reset}>
           Reset
         </Button>
       </div>
