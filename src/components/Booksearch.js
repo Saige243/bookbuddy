@@ -122,30 +122,3 @@ export default function Booksearch() {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // function resultSet(){
-  //   setRslt(<div>{result.map(book =>(
-  //     <a target="blank" a href={book.volumeInfo.previewLink}>
-  //     <img style={{ width: "8rem" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/></a>
-  //   ))}</div>
-  // )}
