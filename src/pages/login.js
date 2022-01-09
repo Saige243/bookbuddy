@@ -1,5 +1,4 @@
 import React from 'react'
-import Signupcomp from '../components/Signupcomp'
 import { Container } from 'react-bootstrap'
 import AuthProvider from '../contexts/AuthContext'
 import Logincomp from '../components/Logincomp'

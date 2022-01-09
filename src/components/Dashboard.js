@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
-import { Button, Alert, Card, Container, Col, Row } from 'react-bootstrap'
+import React from 'react'
+import { Card, Container, Col, Row } from 'react-bootstrap'
 import Booksearch from './Booksearch'
 import Timer from '../components/Timer'
 import Notes from './Notes'
 import Navbar from './Navbar'
-import Log from './Log'
-import  '../App.css'  
-import Child from './Booksearch'
 
 
 export default function Dashboard() {
-
 
   return (
     <div>
@@ -35,15 +31,6 @@ export default function Dashboard() {
             </Card>
           </Col>
         </Row>
-        {/* <Row>
-          <Col style={{ display:"grid", alignItems: "center", textAlign: "center" }}xl="12">
-            <Card className="shadow sm">
-              <div>NEW CARD</div>
-            </Card>
-          </Col>
-          <Col>
-          </Col>
-        </Row> */}
       </Container>
     </div>
 

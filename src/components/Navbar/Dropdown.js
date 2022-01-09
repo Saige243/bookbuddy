@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
-import { Button, Alert } from 'react-bootstrap'
 import { useAuth } from "../../contexts/AuthContext"
-import { NavLink, Link, useHistory } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 
 export default function DropdownMenu() {
   const [error, setError] = useState('')

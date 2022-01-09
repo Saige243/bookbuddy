@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Alert, Card, Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);

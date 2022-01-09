@@ -1,11 +1,9 @@
-import React, { useState, Link, Img, useContext, createContext } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
-import { Alert, Card, Container, Popover, OverlayTrigger, Col, Row } from 'react-bootstrap'
+import { Card, Container, Popover, OverlayTrigger } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { text } from '@fortawesome/fontawesome-svg-core';
-import Notes from './Notes'
 
 
 export default function Booksearch() {
@@ -18,6 +16,7 @@ export default function Booksearch() {
   const [rslt, setRslt] = useState("");
   const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
 
+
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>
@@ -29,11 +28,8 @@ export default function Booksearch() {
     </Popover>
 );
 
-
-
   function libraryPhrase(){
     setWord("Added to Library!")
-    // changeImage()
   }
 
   function readingPhrase(){
@@ -74,6 +70,9 @@ export default function Booksearch() {
   }
 
 
+
+
+
   return (
     <div>
       <div className="bookcontainer">
@@ -103,10 +102,7 @@ export default function Booksearch() {
               {result.map(book => (
                 <>
                   <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent:"center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
-
-                    <img style={{ width: "6rem", height:"fill", marginBottom:"10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
-                    
-
+                      <img style={{ width: "6rem", height:"fill", marginBottom:"10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
                     <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
                       <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", backgroundColor:"#97D9E1", textDecoration:"none", border: "none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
                     </OverlayTrigger>

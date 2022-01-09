@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, OverlayTrigger, Tooltip, Alert, Card, Container, Col, Row } from 'react-bootstrap'
+import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
 
 
 const renderTooltip = (props) => (
