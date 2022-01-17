@@ -1,42 +1,42 @@
-import React, { useRef, useState } from 'react'
-import { Card, Form, Button, Alert } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
-import { Link, useHistory } from 'react-router-dom'
+import React, { useRef, useState } from 'react';
+import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { useAuth } from '../contexts/AuthContext';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Signupcomp() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
-  const { signup } = useAuth()
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
-  
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  async function handleSubmit(e){
-    e.preventDefault()
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value){
-      return setError('Passwords do not match')
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Passwords do not match');
     }
 
     try {
-      setError('')
-      setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
-      history.push('/dash')
-  } catch {
-    setError('Failed to create an account')
+      setError('');
+      setLoading(true);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      history.push('/dash');
+    } catch {
+      setError('Failed to create an account');
+    }
+    setLoading(false);
   }
-    setLoading(false)
-}
-
 
   return (
     <div>
       <Card id="card" className="shadow p-3">
         <Card.Body>
-          <h2 id="heading" className="text-center mb-4">Love reading? You'll love Bookbud. Join Now.</h2>
+          <h2 id="heading" className="text-center mb-4">
+            Love reading? You'll love Bookbud. Join Now.
+          </h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -51,15 +51,23 @@ export default function Signupcomp() {
               <Form.Label className="pt-2">Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
-            <Button style={{backgroundColor:"#97D9E1", border:"none"}} disabled={loading} type="submit" className="mt-3 w-100">
+            <Button
+              style={{ backgroundColor: '#97D9E1', border: 'none' }}
+              disabled={loading}
+              type="submit"
+              className="mt-3 w-100"
+            >
               <strong>Sign Up</strong>
             </Button>
           </Form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Already have an account? <Link style={{color: "white"}} to='/'>Login</Link>
+        Already have an account?{' '}
+        <Link style={{ color: 'white' }} to="/">
+          Login
+        </Link>
       </div>
     </div>
-  )
+  );
 }

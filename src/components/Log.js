@@ -1,10 +1,9 @@
-import React from 'react'
-import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
-
+import React from 'react';
+import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const renderTooltip = (props) => (
   <Tooltip id="button-tooltip" {...props}>
-    <Button >Click me!</Button>
+    <Button>Click me!</Button>
   </Tooltip>
 );
 
@@ -19,5 +18,5 @@ export default function Log() {
         <Button variant="success">Hover me to see</Button>
       </OverlayTrigger>
     </div>
-  )
+  );
 }

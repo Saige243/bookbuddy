@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
-import { Card, Container, Popover, OverlayTrigger } from 'react-bootstrap'
+import { Modal, Card, Container, Popover, OverlayTrigger } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
@@ -10,6 +10,7 @@ export default function Booksearch() {
   const [book, setBook] = useState("")
   const [word, setWord] = useState("")
   const [butt, setButt] = useState("")
+  const [description, setDescription] = useState("");
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState
   ("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
@@ -69,7 +70,31 @@ export default function Booksearch() {
     })
   }
 
-
+  function Child() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    return (
+      <>
+        <Button variant="primary" size="sm" onClick={handleShow} style={{border: "none", outline: "none"}}>
+          Description
+        </Button>
+  
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Description</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>{description}</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
 
 
 
@@ -103,11 +128,13 @@ export default function Booksearch() {
                 <>
                   <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent:"center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
                       <img style={{ width: "6rem", height:"fill", marginBottom:"10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
-                    <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
-                      <Button size="sm" className="plusbutton" onClick={clearState} variant="success" style={{ marginBottom: "5px", backgroundColor:"#97D9E1", textDecoration:"none", border: "none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
-                    </OverlayTrigger>
+                    {/* <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
+                      <Button size="sm" className="plusbutton"  variant="success" style={{ marginBottom: "5px", backgroundColor:"#97D9E1", textDecoration:"none", border: "none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
+                    </OverlayTrigger> */}
+                    <div onClick={() => setDescription(book.volumeInfo.description)}><Child /></div>
                     <div style={{ fontSize: "11px" }}>
                       <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
+                      
                     </div>
                   </Container>
                 </>
