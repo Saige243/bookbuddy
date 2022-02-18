@@ -68,7 +68,13 @@ export default function Booksearch() {
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
       console.log(data.data.items)
-    })
+    }).then(book)
+  }
+
+  function setDesc(e) {
+    // setDescription = e.target.book.volumeInfo.description
+    // openModal();
+    console.log(description)
   }
 
   function openModal() {
@@ -89,33 +95,6 @@ export default function Booksearch() {
       transform: 'translate(-50%, -50%)',
     },
   }
-
-
-  // function Child() {
-  //   const [show, setShow] = useState(false);
-  //   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
-
-  //   return (
-  //     <>
-  //       <Button variant="primary" size="sm" onClick={handleShow} style={{ border: "none", outline: "none" }}>
-  //         Description
-  //       </Button>
-
-  //       <Modal show={show} onHide={handleClose}>
-  //         <Modal.Header closeButton>
-  //           <Modal.Title>Description</Modal.Title>
-  //         </Modal.Header>
-  //         <Modal.Body>{description}</Modal.Body>
-  //         <Modal.Footer>
-  //           <Button variant="secondary" onClick={handleClose}>
-  //             Close
-  //           </Button>
-  //         </Modal.Footer>
-  //       </Modal>
-  //     </>
-  //   );
-  // }
 
 
 
@@ -149,10 +128,8 @@ export default function Booksearch() {
               <>
                 <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
                   <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
-                  {/* <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
-                      <Button size="sm" className="plusbutton"  variant="success" style={{ marginBottom: "5px", backgroundColor:"#97D9E1", textDecoration:"none", border: "none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
-                    </OverlayTrigger> */}
-                  <Button onClick={() => setDescription(book.volumeInfo.description), openModal}>Description</Button>
+                  <Button onClick={() => setDescription(book.volumeInfo.description)}>Description</Button>
+                  <Button onClick={openModal}>Description</Button>
                   <Modal
                     style={customStyles}
                     isOpen={modalIsOpen}>
@@ -163,7 +140,6 @@ export default function Booksearch() {
                   </Modal>
                   <div style={{ fontSize: "11px" }}>
                     <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
-
                   </div>
                 </Container>
               </>
@@ -171,6 +147,6 @@ export default function Booksearch() {
           </Card.Body>
         </Card>
       </div>
-    </div>
+    </div >
   )
 }
