@@ -1,11 +1,10 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-const react_1 = require('react');
-const react_bootstrap_1 = require('react-bootstrap');
-const react_fontawesome_1 = require('@fortawesome/react-fontawesome');
-const free_solid_svg_icons_1 = require('@fortawesome/free-solid-svg-icons');
-function App() {
-  const [todos, setTodos] = (0, react_1.useState)(() => {
+import { useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+export default function App() {
+  const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem('todos');
     if (savedTodos) {
       return JSON.parse(savedTodos);
@@ -13,22 +12,28 @@ function App() {
       return [];
     }
   });
-  const [todo, setTodo] = (0, react_1.useState)('');
-  const [inputvalue, setInputValue] = (0, react_1.useState)('');
+  const [todo, setTodo] = useState('');
+  const [inputvalue, setInputValue] = useState('');
+
   function handleUserInput(e) {
     setInputValue(e.target.value);
   }
+
   function resetInputField() {
     setInputValue('');
   }
-  (0, react_1.useEffect)(() => {
+
+  useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+
   function handleInputChange(e) {
     setTodo(e.target.value);
   }
+
   function handleFormSubmit(e) {
     e.preventDefault();
+
     if (todo !== '') {
       setTodos([
         ...todos,
@@ -39,37 +44,34 @@ function App() {
       ]);
     }
   }
+
   function handleDeleteClick(id) {
     const removeItem = todos.filter((todo) => {
       return todo.id !== id;
     });
     setTodos(removeItem);
   }
+
   return (
     <div>
-      <react_bootstrap_1.Form
+      <Form
         onSubmit={handleFormSubmit}
         value={todo}
         onChange={handleInputChange}
       >
-        <react_bootstrap_1.Form.Group
+        <Form.Group
           className="mb-3"
           controlId="exampleForm.ControlInput1"
-        ></react_bootstrap_1.Form.Group>
-        <react_bootstrap_1.Form.Group
-          className="mb-3"
-          controlId="exampleForm.ControlTextarea1"
-        >
-          <react_bootstrap_1.Form.Label>
-            Thoughts & Things:
-          </react_bootstrap_1.Form.Label>
-          <react_bootstrap_1.Form.Control
+        ></Form.Group>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Thoughts & Things:</Form.Label>
+          <Form.Control
             as="textarea"
             value={inputvalue}
             onChange={handleUserInput}
             rows={3}
-          ></react_bootstrap_1.Form.Control>
-          <react_bootstrap_1.Button
+          ></Form.Control>
+          <Button
             style={{ backgroundColor: '#97D9E1', border: 'none' }}
             onClick={resetInputField}
             className="mt-2"
@@ -77,27 +79,24 @@ function App() {
             type="submit"
           >
             <strong>Submit</strong>
-          </react_bootstrap_1.Button>
-        </react_bootstrap_1.Form.Group>
-      </react_bootstrap_1.Form>
+          </Button>
+        </Form.Group>
+      </Form>
 
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text}{' '}
-            <react_bootstrap_1.Button
+            <Button
               variant="link"
               size="sm"
               onClick={() => handleDeleteClick(todo.id)}
             >
-              <react_fontawesome_1.FontAwesomeIcon
-                icon={free_solid_svg_icons_1.faTrash}
-              />
-            </react_bootstrap_1.Button>
+              <FontAwesomeIcon icon={faTrash} />
+            </Button>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-export default App();
