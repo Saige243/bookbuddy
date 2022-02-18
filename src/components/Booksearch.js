@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
-import { Modal, Card, Container, Popover, OverlayTrigger } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { Card, Container, Popover, OverlayTrigger } from 'react-bootstrap'
+import Modal from 'react-modal'
 
 
 export default function Booksearch() {
@@ -16,7 +15,9 @@ export default function Booksearch() {
     ("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [rslt, setRslt] = useState("");
   const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
+  const [modalIsOpen, setIsOpen] = useState(false);
 
+  Modal.setAppElement('div')
 
   const popover = (
     <Popover id="popover-basic">
@@ -70,31 +71,51 @@ export default function Booksearch() {
     })
   }
 
-  function Child() {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    return (
-      <>
-        <Button variant="primary" size="sm" onClick={handleShow} style={{ border: "none", outline: "none" }}>
-          Description
-        </Button>
-
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Description</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>{description}</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
+  function openModal() {
+    setIsOpen(true);
   }
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  }
+
+
+  // function Child() {
+  //   const [show, setShow] = useState(false);
+  //   const handleClose = () => setShow(false);
+  //   const handleShow = () => setShow(true);
+
+  //   return (
+  //     <>
+  //       <Button variant="primary" size="sm" onClick={handleShow} style={{ border: "none", outline: "none" }}>
+  //         Description
+  //       </Button>
+
+  //       <Modal show={show} onHide={handleClose}>
+  //         <Modal.Header closeButton>
+  //           <Modal.Title>Description</Modal.Title>
+  //         </Modal.Header>
+  //         <Modal.Body>{description}</Modal.Body>
+  //         <Modal.Footer>
+  //           <Button variant="secondary" onClick={handleClose}>
+  //             Close
+  //           </Button>
+  //         </Modal.Footer>
+  //       </Modal>
+  //     </>
+  //   );
+  // }
 
 
 
@@ -131,7 +152,15 @@ export default function Booksearch() {
                   {/* <OverlayTrigger rootClose trigger="click" placement="bottom" overlay={popover}>
                       <Button size="sm" className="plusbutton"  variant="success" style={{ marginBottom: "5px", backgroundColor:"#97D9E1", textDecoration:"none", border: "none", textAlign:"center"}}><FontAwesomeIcon icon={faPlus} size={"sm"} /></Button>
                     </OverlayTrigger> */}
-                  <div onClick={() => setDescription(book.volumeInfo.description)}><Child /></div>
+                  <Button onClick={() => setDescription(book.volumeInfo.description), openModal}>Description</Button>
+                  <Modal
+                    style={customStyles}
+                    isOpen={modalIsOpen}>
+                    <div>
+                      <h1>Test:{description}</h1>
+                      <Button onClick={closeModal}>Close</Button>
+                    </div>
+                  </Modal>
                   <div style={{ fontSize: "11px" }}>
                     <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
 
