@@ -72,7 +72,7 @@ export default function App() {
             rows={3}
           ></Form.Control>
           <Button
-            style={{ backgroundColor: '#97D9E1', border: 'none' }}
+            style={{ boxShadow: "none", backgroundColor: '#97D9E1', border: 'none' }}
             onClick={resetInputField}
             className="mt-2"
             variant="primary"

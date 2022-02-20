@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button'
-import { Card, Container, Popover, OverlayTrigger } from 'react-bootstrap'
-import Modal from 'react-modal'
-
+import { Card, Container } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import Library from '../pages/library'
 
 export default function Booksearch() {
   const [book, setBook] = useState("")
@@ -17,18 +18,6 @@ export default function Booksearch() {
   const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  Modal.setAppElement('div')
-
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Body>
-        <Button onClick={libraryPhrase} size="sm" style={{ border: "none", backgroundColor: "#97D9E1", marginRight: "2px" }}> + to Library</Button>
-        <Button style={{ border: "none", backgroundColor: "#97D9E1" }} onClick={readingPhrase} size="sm">+ to Now Reading</Button>
-        <p style={{ marginTop: "5px", textAlign: "center" }}>{word}</p>
-        <Button size="sm" style={{ border: "none", backgroundColor: "#97D9E1", width: "100%", textAlign: "center" }}>Book Description</Button>
-      </Popover.Body>
-    </Popover>
-  );
 
   function libraryPhrase() {
     setWord("Added to Library!")
@@ -59,7 +48,7 @@ export default function Booksearch() {
     const i = e.target.src
     setRslt(i)
     setButt(
-      <Button size="sm" style={{ fontWeight: "bold", marginTop: "10px", backgroundColor: "#97D9E1", marginBottom: "30px", border: "none" }} onClick={clearReading}>Clear Now Reading</Button>)
+      <Button size="sm" style={{ boxShadow: "none", fontWeight: "bold", marginTop: "10px", backgroundColor: "#97D9E1", marginBottom: "30px", border: "none" }} onClick={clearReading}>Clear Now Reading</Button>)
     setReadingStatus("")
   }
 
@@ -71,11 +60,6 @@ export default function Booksearch() {
     })
   }
 
-  function setDescript(e) {
-    setDescription(e.target.value.volumeInfo)
-    // openModal();
-  }
-
   function openModal() {
     setIsOpen(true);
   }
@@ -83,19 +67,6 @@ export default function Booksearch() {
   function closeModal() {
     setIsOpen(false)
   }
-
-  const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  }
-
-
 
   return (
     <div>
@@ -116,9 +87,9 @@ export default function Booksearch() {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="formgroup">
-              <input type="text" onChange={handleChange} className="inputcontrol" placeholder="What are you looking for?" autoComplete="on"></input>
+              <input type="text" onChange={handleChange} className="inputcontrol" placeholder="title/author" autoComplete="on"></input>
             </div>
-            <Button style={{ backgroundColor: "#97D9E1", marginTop: "7px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
+            <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
           </form>
 
 
@@ -127,17 +98,8 @@ export default function Booksearch() {
               <>
                 <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
                   <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
-                  {/* <Button onClick={() => setDescription(book.volumeInfo.description)}>Description</Button> */}
-                  <Button onClick={setDescript}>Description</Button>
-                  {/* <Button onClick={openModal}>Description</Button> */}
-                  <Modal
-                    style={customStyles}
-                    isOpen={modalIsOpen}>
-                    <div>
-                      <h6>Test:{description}</h6>
-                      <Button onClick={closeModal}>Close</Button>
-                    </div>
-                  </Modal>
+                  <Button style={{ backgroundColor: "#97D9E1", border: "none", boxShadow: "none" }} size="sm" target="_blank" href={book.volumeInfo.infoLink}> <FontAwesomeIcon size="lg" icon={faInfoCircle} />
+                  </Button>
                   <div style={{ fontSize: "11px" }}>
                     <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
                   </div>

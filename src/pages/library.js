@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
+import Booksearch from '../components/Booksearch'
 
-export default function library() {
+export default function Library() {
+
   return (
     <div>
       <Navbar />
-      <h1>My Library</h1>
+      <h1>Library page</h1>
     </div>
   )
 }

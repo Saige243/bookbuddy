@@ -39,6 +39,7 @@ const Timer = () => {
         <Button
           size="sm"
           style={{
+            boxShadow: "none",
             backgroundColor: '#97D9E1',
             border: 'none',
             fontWeight: 'bold',
@@ -50,7 +51,7 @@ const Timer = () => {
         </Button>
         <Button
           size="sm"
-          style={{ backgroundColor: '#97D9E1', border: 'none' }}
+          style={{ boxShadow: "none", backgroundColor: '#97D9E1', border: 'none' }}
           onClick={reset}
         >
           <strong>Reset</strong>
