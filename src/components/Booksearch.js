@@ -67,14 +67,13 @@ export default function Booksearch() {
     e.preventDefault();
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
-      console.log(data.data.items)
-    }).then(book)
+      console.log(result)
+    })
   }
 
-  function setDesc(e) {
-    // setDescription = e.target.book.volumeInfo.description
+  function setDescript(e) {
+    setDescription(e.target.value.volumeInfo)
     // openModal();
-    console.log(description)
   }
 
   function openModal() {
@@ -128,13 +127,14 @@ export default function Booksearch() {
               <>
                 <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
                   <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
-                  <Button onClick={() => setDescription(book.volumeInfo.description)}>Description</Button>
-                  <Button onClick={openModal}>Description</Button>
+                  {/* <Button onClick={() => setDescription(book.volumeInfo.description)}>Description</Button> */}
+                  <Button onClick={setDescript}>Description</Button>
+                  {/* <Button onClick={openModal}>Description</Button> */}
                   <Modal
                     style={customStyles}
                     isOpen={modalIsOpen}>
                     <div>
-                      <h1>Test:{description}</h1>
+                      <h6>Test:{description}</h6>
                       <Button onClick={closeModal}>Close</Button>
                     </div>
                   </Modal>
