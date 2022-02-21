@@ -8,6 +8,8 @@ import Library from '../pages/library'
 
 export default function Booksearch() {
   const [book, setBook] = useState("")
+  const [favearray, setFavearray] = useState([])
+  const [query, setQuery] = useState('yaho!')
   const [word, setWord] = useState("")
   const [butt, setButt] = useState("")
   const [description, setDescription] = useState("");
@@ -68,6 +70,11 @@ export default function Booksearch() {
     setIsOpen(false)
   }
 
+  function addToFaves(e) {
+    setQuery(e.target.src)
+    setFavearray(favearray => [...favearray, query])
+  }
+
   return (
     <div>
       <div className="bookcontainer">
@@ -77,6 +84,11 @@ export default function Booksearch() {
             <h7>{readingStatus}</h7>
             <div>{butt}</div>
             <div><img className="readingimg" alt="" src={rslt}></img></div>
+            <div>
+              {favearray.map(e =>
+                <img className="readingimg" alt="" src={favearray}></img>
+              )}
+            </div>
           </Card.Body>
         </Card>
 
@@ -100,6 +112,8 @@ export default function Booksearch() {
                   <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
                   <Button style={{ backgroundColor: "#97D9E1", border: "none", boxShadow: "none" }} size="sm" target="_blank" href={book.volumeInfo.infoLink}> <FontAwesomeIcon size="lg" icon={faInfoCircle} />
                   </Button>
+                  <Button onClick={() => setQuery(book.volumeInfo.imageLinks.thumbnail)}>Query</Button>
+                  <Button onClick={addToFaves}>Array</Button>
                   <div style={{ fontSize: "11px" }}>
                     <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
                   </div>
