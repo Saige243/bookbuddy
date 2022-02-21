@@ -62,14 +62,6 @@ export default function Booksearch() {
     })
   }
 
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-
   function addToFaves(e) {
     setQuery(e.target.src)
     setFavearray(favearray => [...favearray, query])
@@ -85,8 +77,8 @@ export default function Booksearch() {
             <div>{butt}</div>
             <div><img className="readingimg" alt="" src={rslt}></img></div>
             <div>
-              {favearray.map(e =>
-                <img className="readingimg" alt="" src={favearray}></img>
+              {favearray.map(favearray =>
+                <img style={{ width: "6rem", margin: "5px" }} className="readingimg" alt="" src={favearray}></img>
               )}
             </div>
           </Card.Body>
