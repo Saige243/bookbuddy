@@ -3,13 +3,12 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button'
 import { Card, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import Library from '../pages/library'
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 export default function Booksearch() {
   const [book, setBook] = useState("")
   const [favearray, setFavearray] = useState([])
-  const [query, setQuery] = useState('yaho!')
+  const [query, setQuery] = useState('querytest!')
   const [word, setWord] = useState("")
   const [butt, setButt] = useState("")
   const [description, setDescription] = useState("");
@@ -63,7 +62,7 @@ export default function Booksearch() {
   }
 
   function addToFaves(e) {
-    setQuery(e.target.src)
+    // setQuery(e.target.src)
     setFavearray(favearray => [...favearray, query])
   }
 
