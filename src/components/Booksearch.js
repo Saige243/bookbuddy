@@ -17,7 +17,7 @@ export default function Booksearch() {
     ("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [rslt, setRslt] = useState("");
   const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
 
 
   function libraryPhrase() {
@@ -58,12 +58,18 @@ export default function Booksearch() {
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
       console.log(result)
+      setVisible(true)
     })
   }
 
   function addToFaves(e) {
     // setQuery(e.target.src)
     setFavearray(favearray => [...favearray, query])
+  }
+
+  function deleteCard() {
+    setVisible(false)
+    setBook('')
   }
 
   return (
@@ -93,11 +99,12 @@ export default function Booksearch() {
               <input type="text" onChange={handleChange} className="inputcontrol" placeholder="title/author" autoComplete="on"></input>
             </div>
             <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
+            <Button style={{ boxShadow: "none", backgroundColor: "red", marginTop: "7px", border: "none" }} type="submit" className="btn" onClick={deleteCard}><strong>Close Search</strong></Button>
           </form>
 
 
           <Card.Body className="shadow-sm">
-            {result.map(book => (
+            {visible && result.map(book => (
               <>
                 <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
                   <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
