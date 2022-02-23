@@ -1,14 +1,9 @@
-<!-- • Make font icons from font awesome instead of 'library' and 'home' etc. -->
-
-• Make all Dashboard 'components' actual components in actual components folder ('Now Reading' etc.)
-
-• Clean up all code - no unused vars or anything like that. (Including CSS).
-
-• Fix google API & 404 error screen (comes up completely blank w/ errors).
-
-• Figure out color scheme!
-  f79256
+• Fix google API & 404 error screen (comes up completely blank w/ errors). (because of thumbnails)
 
 • Logs out on refresh... fix this.
 
-• Clear submit form after writing in it upon submit.
+• Back up with MongoDB
+
+• Figure out how to send data to other components
+
+• Put button styles in global css (non inline)

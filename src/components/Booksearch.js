@@ -18,6 +18,7 @@ export default function Booksearch() {
   const [rslt, setRslt] = useState("");
   const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
   const [visible, setVisible] = useState(true);
+  const [visiblebutton, setVisibleButton] = useState(false);
 
 
   function libraryPhrase() {
@@ -59,17 +60,20 @@ export default function Booksearch() {
       setResult(data.data.items)
       console.log(result)
       setVisible(true)
+      setVisibleButton(true)
+      setVisibleButton(
+        <Button style={{ boxShadow: "none", backgroundColor: "red", marginTop: "7px", border: "none" }} type="submit" className="btn" onClick={deleteCard}><strong>x</strong></Button>)
     })
   }
 
   function addToFaves(e) {
-    // setQuery(e.target.src)
     setFavearray(favearray => [...favearray, query])
   }
 
   function deleteCard() {
     setVisible(false)
     setBook('')
+    setVisibleButton(false)
   }
 
   return (
@@ -99,7 +103,7 @@ export default function Booksearch() {
               <input type="text" onChange={handleChange} className="inputcontrol" placeholder="title/author" autoComplete="on"></input>
             </div>
             <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
-            <Button style={{ boxShadow: "none", backgroundColor: "red", marginTop: "7px", border: "none" }} type="submit" className="btn" onClick={deleteCard}><strong>Close Search</strong></Button>
+            <div>{visiblebutton}</div>
           </form>
 
 
