@@ -3,16 +3,16 @@ import { Card, Form, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 
-export default function Signupcomp() {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+export default function Signupcomp(): JSX.Element {
+  const emailRef = React.useRef<HTMLInputElement>(null!);
+  const passwordRef = React.useRef<HTMLInputElement>(null!);
+  const passwordConfirmRef = React.useRef<HTMLInputElement>(null!);
   const { signup } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.ChangeEvent<any>) {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
