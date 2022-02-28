@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import Booksearch from './Booksearch';
 import Timer from '../components/Timer';
