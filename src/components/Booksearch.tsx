@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ChangeEvent, MouseEvent, useState } from 'react';
+import React, { useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { Card, Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,12 +7,12 @@ import { Button } from 'react-bootstrap';
 
 export default function Booksearch(): JSX.Element {
 
-  const [book, setBook] = useState("")
+  const [book, setBook] = React.useState<string>('')
   const [favearray, setFavearray] = useState<string[]>([])
   const [query, setQuery] = useState('querytest!')
   const [word, setWord] = useState("")
   const [butt, setButt] = useState<JSX.Element | string>()
-  const [result, setResult] = useState<AxiosResponse | string[]>([]);
+  const [result, setResult] = useState<AxiosMap | string[]>([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [rslt, setRslt] = useState("");
   const [readingStatus, setReadingStatus] = useState("Click a book below to add to Now Reading")
@@ -20,9 +20,7 @@ export default function Booksearch(): JSX.Element {
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
 
   const libraryPhrase = (setWord("Added to Library!"))
-
   const readingPhrase = (setWord("Added to Now Reading!"))
-
   const clearState = (setWord(""))
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,6 +66,11 @@ export default function Booksearch(): JSX.Element {
     setVisibleButton(false)
   )
 
+  interface AxiosMap {
+    map: any
+    book: any
+  }
+
   const nowreading_container = (
     <Card id="card">
       <Card.Body id="card" className="shadow sm">
@@ -90,7 +93,7 @@ export default function Booksearch(): JSX.Element {
 
   const booksearch_results = (
     <Card.Body className="shadow-sm">
-      {visible && result.map(book => (
+      {visible && result.map((book: any) => (
         <>
           <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
             <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} onClick={imageSet} alt={book.title} />
