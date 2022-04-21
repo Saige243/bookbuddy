@@ -1,12 +1,12 @@
-import React from 'react';
 import { Card, Container, Col, Row } from 'react-bootstrap';
 import Booksearch from './Booksearch';
-import Timer from '../components/Timer';
+import Timer from './Timer';
 import Notes from './Notes';
 import Navbar from './Navbar';
 
-export default function Dashboard() {
-  return (
+export default function Dashboard(): JSX.Element {
+
+  const layout = (
     <div>
       <Navbar />
       <Container fluid="lg">
@@ -33,5 +33,6 @@ export default function Dashboard() {
         </Row>
       </Container>
     </div>
-  );
+  )
+  return layout
 }
