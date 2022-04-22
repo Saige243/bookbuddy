@@ -27,10 +27,11 @@ export default function Timer(): JSX.Element {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr'
+        gridTemplateColumns: '1fr',
+        justifyContent: "center"
       }}
     >
-      <Container style={{ justifyContent: '' }}>
+      <Container className="seconds_container">
         <Container className="time">{seconds}</Container>
       </Container>
     </div>
