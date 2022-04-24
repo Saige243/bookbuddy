@@ -8,7 +8,7 @@ export default function DropdownMenu() {
   const { currentUser, logout } = useAuth()
   const history = useHistory()
 
-  async function handleLogout(){
+  async function handleLogout() {
     setError('')
 
     try {
@@ -24,20 +24,20 @@ export default function DropdownMenu() {
   return (
     <div>
       <Dropdown className="DropMenu">
-        <Dropdown.Toggle style={{ backgroundColor: "#f5cac2", border: "none", textDecoration:"none", color: "white", boxShadow: "none" }}variant="info" id="dropdown-basic">
+        <Dropdown.Toggle style={{ backgroundColor: "white", border: "none", textDecoration: "none", color: "#97D9E1", boxShadow: "none" }} variant="info" id="dropdown-basic">
         </Dropdown.Toggle>
 
-        <Dropdown.Menu style={{ backgroundColor: "#f5cac2" }}>
+        <Dropdown.Menu style={{ backgroundColor: "white" }}>
           <Dropdown.Item>
-            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dash">Dashboard</NavLink>
+            <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/dash"><b>Dashboard</b></NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-             <NavLink style={{ textDecoration: 'none', color: 'white' }}to="/search">Search A Book</NavLink>
+            <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/search"><b>Search A Book</b></NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/library">My Library</NavLink>
+            <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/library"><b>My Library</b></NavLink>
           </Dropdown.Item>
-          <Dropdown.Item style={{ textDecoration: 'none', color: 'white' }} onClick={handleLogout}>Log Out</Dropdown.Item>
+          <Dropdown.Item style={{ textDecoration: 'none', color: '#97D9E1' }} onClick={handleLogout}><b>Log Out</b></Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>
