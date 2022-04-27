@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 
 
-
 export default function Timer(): JSX.Element {
 
   const [seconds, setSeconds] = useState(0)

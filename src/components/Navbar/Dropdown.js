@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { useAuth } from "../../contexts/AuthContext"
 import { NavLink, useHistory } from "react-router-dom"
@@ -32,7 +32,7 @@ export default function DropdownMenu() {
             <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/dash"><b>Dashboard</b></NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/search"><b>Search A Book</b></NavLink>
+            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/search">Search A Book</NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
             <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/library"><b>My Library</b></NavLink>
