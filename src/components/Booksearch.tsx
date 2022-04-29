@@ -8,11 +8,11 @@ import { Button } from 'react-bootstrap';
 export default function Booksearch(): JSX.Element {
 
   const [book, setBook] = React.useState<string>('')
-  const [word, setWord] = useState("")
-  const [butt, setButt] = useState<JSX.Element | string>()
+  // const [word, setWord] = useState("")
+  // const [butt, setButt] = useState<JSX.Element | string>()
   const [result, setResult] = useState<AxiosMap | string[]>([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
-  const [rslt, setRslt] = useState("");
+  // const [rslt, setRslt] = useState("");
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
 
@@ -69,7 +69,7 @@ export default function Booksearch(): JSX.Element {
   const layout = (
     <div>
       <div className="bookcontainer">
-        <Card id="card" className="mt-2 shadow sm h-100" style={{ width: '100%' }}>
+        <Card id="card" style={{ width: '100%' }}>
           <h1 id="heading" style={{ paddingTop: "20px" }}>Book Search</h1>
           <div style={{ marginBottom: "20px" }}>
           </div>
