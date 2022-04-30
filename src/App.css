@@ -121,3 +121,9 @@
 #card{
   border-radius: 15px;
 }
+
+@media only screen and (max-width: 375px) {
+  .bkcontainer {
+    margin: 3px !important
+  }
+}
