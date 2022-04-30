@@ -36,14 +36,10 @@ export default function Navbar() {
         <NavLogo id="heading" className={"logo"} to="/dash">
           <strong>BookBud</strong>
         </NavLogo>
-        {/* <Bars /> */}
         <Dropdown />
         <NavMenu>
           <NavLink className="navlink" to="/dash" activeStyle>
             <FontAwesomeIcon size="lg" icon={faHome} />
-          </NavLink>
-          <NavLink to="/search" activeStyle>
-            <FontAwesomeIcon size="lg" icon={faBook} />
           </NavLink>
           <NavLink to="/library" activeStyle>
             <FontAwesomeIcon size="lg" icon={faBookOpen} />

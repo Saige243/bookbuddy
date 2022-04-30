@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { Card, Container } from 'react-bootstrap'
+import { Card, Container, OverlayTrigger, Popover } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
@@ -49,12 +49,23 @@ export default function Booksearch(): JSX.Element {
     <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
   )
 
+
+  // Add to favorites here
+  const popoverTop = (
+    <Popover id="popover-positioned-top" title="Popover top">
+      <Button style={{ backgroundColor: "#97D9E1", border: "none" }} size="sm">+ Library</Button>
+    </Popover>
+  );
+
+
   const booksearch_results = (
     <Card.Body className="shadow-sm">
       {visible && result.map((book: any) => (
         <>
-          <Container fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "30px" }} className="">
-            <img style={{ width: "6rem", height: "fill", marginBottom: "10px" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+          <Container className="bkcontainer" fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "15px" }}>
+            <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
+              <img style={{ width: "6rem", height: "fill", marginBottom: "8px" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+            </OverlayTrigger>
             <Button style={{ backgroundColor: "#97D9E1", border: "none", boxShadow: "none" }} size="sm" target="_blank" href={book.volumeInfo.infoLink}><FontAwesomeIcon size="lg" icon={faInfoCircle} />
             </Button>
             <div style={{ fontSize: "11px" }}>
@@ -65,6 +76,7 @@ export default function Booksearch(): JSX.Element {
       ))}
     </Card.Body>
   )
+
 
   const layout = (
     <div>

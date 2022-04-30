@@ -32,9 +32,6 @@ export default function DropdownMenu() {
             <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/dash"><b>Dashboard</b></NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/search">Search A Book</NavLink>
-          </Dropdown.Item>
-          <Dropdown.Item>
             <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/library"><b>My Library</b></NavLink>
           </Dropdown.Item>
           <Dropdown.Item style={{ textDecoration: 'none', color: '#97D9E1' }} onClick={handleLogout}><b>Log Out</b></Dropdown.Item>
