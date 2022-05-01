@@ -77,13 +77,14 @@ export default function App(): JSX.Element {
         controlId="exampleForm.ControlInput1"
       >
       </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+      <Form.Group style={{ textAlign: "center" }}
+        className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>Thoughts & Things:</Form.Label>
         <Form.Control
           as="textarea"
           value={inputvalue}
           onChange={handleUserInput}
-          rows={3}
+          rows={4}
         >
         </Form.Control>
         {submit_note}
