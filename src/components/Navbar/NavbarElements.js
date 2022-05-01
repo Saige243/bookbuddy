@@ -9,18 +9,20 @@ export const Nav = styled.nav`
   align-items: center;
   padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
-  background-color: #97D9E1;
+  background-color: #fff;
 `;
+
 export const NavLogo = styled(Link)`
   cursor: pointer;
   color: #fff;
   font-size: 2rem;
   text-decoration: none;
   padding: 10px;
+  color: #97D9E1
 `;
 
 export const NavLink = styled(Link)`
-color: #fff;
+color: #97D9E1;
 display: flex;
 align-items: center;
 text-decoration: none;
@@ -29,7 +31,7 @@ height: 100%;
 cursor: pointer;
 padding: 10px;
 &.active {
-  color: white;
+  color: #97D9E1;
 }
 &:hover {
   color: #fae5df;

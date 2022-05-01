@@ -24,7 +24,7 @@ export default function DropdownMenu() {
   return (
     <div>
       <Dropdown className="DropMenu">
-        <Dropdown.Toggle style={{ backgroundColor: "white", border: "none", textDecoration: "none", color: "#97D9E1", boxShadow: "none" }} variant="info" id="dropdown-basic">
+        <Dropdown.Toggle style={{ backgroundColor: "white", borderColor: "#97D9E1", textDecoration: "none", color: "#97D9E1", boxShadow: "none" }} variant="info" id="dropdown - basic">
         </Dropdown.Toggle>
 
         <Dropdown.Menu style={{ backgroundColor: "white" }}>
@@ -37,6 +37,6 @@ export default function DropdownMenu() {
           <Dropdown.Item style={{ textDecoration: 'none', color: '#97D9E1' }} onClick={handleLogout}><b>Log Out</b></Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-    </div>
+    </div >
   )
 }

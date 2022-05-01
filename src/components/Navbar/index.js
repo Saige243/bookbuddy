@@ -42,7 +42,7 @@ export default function Navbar() {
             <FontAwesomeIcon size="lg" icon={faHome} />
           </NavLink>
           <NavLink to="/library" activeStyle>
-            <FontAwesomeIcon size="lg" icon={faBookOpen} />
+            <FontAwesomeIcon size="lg" icon={faBook} />
           </NavLink>
           <NavLink to='/' onClick={handleLogout}>
             <FontAwesomeIcon size="lg" icon={faSignOutAlt} />

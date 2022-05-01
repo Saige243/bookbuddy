@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { Card, Container, OverlayTrigger, Popover } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faInfoCircle, faBook, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
 
 export default function Booksearch(): JSX.Element {
-
   const [book, setBook] = React.useState<string>('')
-  // const [word, setWord] = useState("")
-  // const [butt, setButt] = useState<JSX.Element | string>()
   const [result, setResult] = useState<AxiosMap | string[]>([]);
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
-  // const [rslt, setRslt] = useState("");
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const book = e.target.value;
@@ -46,23 +44,23 @@ export default function Booksearch(): JSX.Element {
   }
 
   const booksearch_button = (
-    <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
+    <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", marginRight: "5px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
   )
 
 
-  // Add to favorites here
+  // Add to Library here
   const popoverTop = (
     <Popover id="popover-positioned-top" title="Popover top">
-      <Button style={{ backgroundColor: "#97D9E1", border: "none" }} size="sm">+ Library</Button>
+      <Button style={{ backgroundColor: "#97D9E1", border: "none" }} size="sm"><FontAwesomeIcon size="sm" icon={faPlus} /> <FontAwesomeIcon size="sm" icon={faBook} /></Button>
     </Popover>
   );
 
 
   const booksearch_results = (
-    <Card.Body className="shadow-sm">
+    <Card.Body id="card" className="shadow-sm">
       {visible && result.map((book: any) => (
         <>
-          <Container className="bkcontainer" fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", alignItems: "center", marginBottom: "15px" }}>
+          <Container className="bkcontainer" fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", paddingTop: "25px", alignItems: "center", marginBottom: "5px" }}>
             <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
               <img style={{ width: "6rem", height: "fill", marginBottom: "8px" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
             </OverlayTrigger>
@@ -79,22 +77,18 @@ export default function Booksearch(): JSX.Element {
 
 
   const layout = (
-    <div>
-      <div className="bookcontainer">
-        <Card id="card" style={{ width: '100%' }}>
-          <h1 id="heading" style={{ paddingTop: "20px" }}>Book Search</h1>
-          <div style={{ marginBottom: "20px" }}>
+    <div className="bookcontainer">
+      <Card id="card" style={{ width: '100%' }}>
+        <h1 id="heading" style={{ paddingTop: "20px" }}>Book Search</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="formgroup">
+            <input style={{ borderColor: "#97D9E1" }} type="text" onChange={handleChange} className="inputcontrol" placeholder="title/author" autoComplete="on"></input>
           </div>
-          <form onSubmit={handleSubmit}>
-            <div className="formgroup">
-              <input type="text" onChange={handleChange} className="inputcontrol" placeholder="title/author" autoComplete="on"></input>
-            </div>
-            {booksearch_button}
-            <div>{visiblebutton}</div>
-          </form>
-          {booksearch_results}
-        </Card>
-      </div>
+          {booksearch_button}
+          {visiblebutton}
+        </form>
+        {booksearch_results}
+      </Card>
     </div>
   )
   return layout
