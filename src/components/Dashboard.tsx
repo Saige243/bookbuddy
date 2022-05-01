@@ -11,9 +11,11 @@ export default function Dashboard(): JSX.Element {
       <Navbar />
       <Container fluid="lg">
         <Row>
-          <Col className="p-3" xs={12} sm={12} md={4}>
+          <Col className="p-3" xs={12} sm={12} md={8}>
             <Booksearch />
-            <Card id="card" className="mt-2 text-center" style={{ width: '100%' }}>
+          </Col>
+          <Col className="p-3" xs={12} sm={12} md={4}>
+            <Card id="card" className="text-center" style={{ width: '100%' }}>
               <Card.Body id="card">
                 <Card.Title id="heading">Reading Timer</Card.Title>
                 <Timer />
