@@ -15,7 +15,7 @@ export default function Dashboard(): JSX.Element {
             <Booksearch />
           </Col>
           <Col className="p-3" xs={12} sm={12} md={4}>
-            <Card id="card" className="text-center" style={{ width: '100%' }}>
+            <Card id="card" className="text-center" style={{ width: '100%', marginBottom: "30px" }}>
               <Card.Body id="card">
                 <Card.Title id="heading">Reading Timer</Card.Title>
                 <Timer />
