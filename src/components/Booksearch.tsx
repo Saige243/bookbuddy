@@ -12,8 +12,6 @@ export default function Booksearch(): JSX.Element {
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
 
-
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const book = e.target.value;
     setBook(book);
@@ -47,14 +45,12 @@ export default function Booksearch(): JSX.Element {
     <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", marginRight: "5px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
   )
 
-
   // Add to Library here
   const popoverTop = (
     <Popover id="popover-positioned-top" title="Popover top">
       <Button style={{ backgroundColor: "#97D9E1", border: "none" }} size="sm"><FontAwesomeIcon size="sm" icon={faPlus} /> <FontAwesomeIcon size="sm" icon={faBook} /></Button>
     </Popover>
   );
-
 
   const booksearch_results = (
     <Card.Body id="card" className="shadow-sm">
@@ -74,7 +70,6 @@ export default function Booksearch(): JSX.Element {
       ))}
     </Card.Body>
   )
-
 
   const layout = (
     <div className="bookcontainer">
