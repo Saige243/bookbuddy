@@ -54,10 +54,10 @@ export default function Signupcomp(): JSX.Element {
 
   const layout = (
     <div>
-      <Card id="card" className="shadow p-3">
+      <Card id="card" className="shadow p-3 m-3">
         <Card.Body>
-          <h2 id="heading" className="text-center mb-4">
-            Love reading? You'll love Bookbud. Join Now.
+          <h2 id="heading" className="text-center mb-2">
+            Love reading? <br />Join Now.
           </h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>

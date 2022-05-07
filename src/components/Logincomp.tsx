@@ -43,23 +43,22 @@ export default function Login(): JSX.Element {
         Sign Up
       </Link>
     </div>
-
   )
 
   const layout = (
     <div>
-      <Card id="card" className="shadow p-3">
+      <Card id="card" className="shadow p-3 m-3">
         <Card.Body>
-          <h1 id="heading" className="text-center mb-4">
+          <h1 id="heading" className="text-center mb-2">
             Welcome to BookBud.
           </h1>
-          <h3 id="heading" className="text-center mb-4">
-            Log In
-          </h3>
+          <h4 id="heading" className="text-center mb-1">
+            Sign In
+          </h4>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
-              <Form.Label className="pt-2">Email</Form.Label>
+              <Form.Label className="pt-1">Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
             <Form.Group id="password">
