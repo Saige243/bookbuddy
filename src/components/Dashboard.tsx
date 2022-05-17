@@ -15,15 +15,26 @@ export default function Dashboard(): JSX.Element {
             <Booksearch />
           </Col>
           <Col className="p-3" xs={12} sm={12} md={6}>
-            <Card id="card" className="text-center pb-3" style={{ width: '100%' }}>
+
+            <Card id="card" className="text-center pb-3"
+              style={{
+                width: '100%'
+              }}>
               <Card.Body id="card">
-                <Card.Title id="heading">Reading Timer</Card.Title>
+                <Card.Title id="heading">
+                  Reading Timer
+                </Card.Title>
                 <Timer />
               </Card.Body>
             </Card>
+
           </Col>
           <Col className="p-3" xs={12} sm={12} md={6}>
-            <Card id="card" className="text-center" style={{ width: '100%' }}>
+
+            <Card id="card" className="text-center"
+              style={{
+                width: '100%'
+              }}>
               <Card.Body id="card">
                 <Card.Title id="heading" className="text-center">
                   Reading Log
@@ -31,6 +42,7 @@ export default function Dashboard(): JSX.Element {
                 <Notes />
               </Card.Body>
             </Card>
+
           </Col>
         </Row>
       </Container>
