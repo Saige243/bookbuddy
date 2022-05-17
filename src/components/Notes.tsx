@@ -79,7 +79,7 @@ export default function App(): JSX.Element {
       </Form.Group>
       <Form.Group style={{ textAlign: "center" }}
         controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Thoughts & Things:</Form.Label>
+        <Form.Label>Thoughts & Notes:</Form.Label>
         <Form.Control
           as="textarea"
           value={inputvalue}
