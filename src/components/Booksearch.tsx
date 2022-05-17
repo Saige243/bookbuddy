@@ -56,14 +56,37 @@ export default function Booksearch(): JSX.Element {
     <Card.Body id="card" className="shadow-sm">
       {visible && result.map((book: any) => (
         <>
-          <Container className="bkcontainer" fluid style={{ width: "6rem", textAlign: "center", justifyContent: "center", display: "inline-grid", margin: "5px", paddingTop: "25px", alignItems: "center", marginBottom: "5px" }}>
+          <Container className="bkcontainer" fluid
+            style={{
+              width: "6rem",
+              textAlign: "center",
+              justifyContent: "center",
+              display: "inline-grid",
+              margin: "5px",
+              paddingTop: "25px",
+              alignItems: "center",
+              marginBottom: "5px"
+            }}>
             <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
               <img style={{ width: "6rem", height: "fill", marginBottom: "8px" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
             </OverlayTrigger>
-            <Button style={{ backgroundColor: "#97D9E1", border: "none", boxShadow: "none" }} size="sm" target="_blank" href={book.volumeInfo.infoLink}><FontAwesomeIcon size="lg" icon={faInfoCircle} />
+            <Button
+              style={{
+                backgroundColor: "#97D9E1",
+                border: "none",
+                boxShadow: "none"
+              }}
+              size="sm" target="_blank" href={book.volumeInfo.infoLink}><FontAwesomeIcon size="lg" icon={faInfoCircle} />
             </Button>
-            <div style={{ fontSize: "11px" }}>
-              <p><strong>{book.volumeInfo.title}</strong><br />{book.volumeInfo.authors}</p>
+            <div
+              style={{
+                fontSize: "11px"
+              }}>
+              <p>
+                <strong>{book.volumeInfo.title}</strong>
+                <br />
+                {book.volumeInfo.authors}
+              </p>
             </div>
           </Container>
         </>
