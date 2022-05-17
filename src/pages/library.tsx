@@ -6,7 +6,7 @@ export default function Library(): JSX.Element {
   return (
     <div>
       <Navbar />
-      <h1>Library page</h1>
+      <h1>My Library</h1>
     </div>
   )
 }
