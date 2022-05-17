@@ -1,6 +1,6 @@
 import * as React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dash from './components/Dashboard'
+import Dash from './pages/Dashboard'
 import Library from './pages/library';
 import Search from './pages/search';
 import SignUp from './pages/signup';

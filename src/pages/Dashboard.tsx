@@ -1,8 +1,8 @@
 import { Card, Container, Col, Row } from 'react-bootstrap';
-import Booksearch from './Booksearch';
-import Timer from './Timer';
-import Notes from './Notes';
-import Navbar from './Navbar';
+import Booksearch from '../components/Booksearch';
+import Timer from '../components/Timer';
+import Notes from '../components/Notes';
+import Navbar from '../components/Navbar';
 
 export default function Dashboard(): JSX.Element {
 
