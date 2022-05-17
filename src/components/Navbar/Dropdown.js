@@ -24,17 +24,46 @@ export default function DropdownMenu() {
   return (
     <div>
       <Dropdown className="DropMenu">
-        <Dropdown.Toggle style={{ backgroundColor: "white", borderColor: "#97D9E1", textDecoration: "none", color: "#97D9E1", boxShadow: "none" }} variant="info" id="dropdown - basic">
+        <Dropdown.Toggle
+          style={{
+            backgroundColor: "white",
+            borderColor: "#97D9E1",
+            textDecoration: "none",
+            color: "#97D9E1",
+            boxShadow: "none"
+          }}
+          variant="info" id="dropdown - basic">
         </Dropdown.Toggle>
 
-        <Dropdown.Menu style={{ backgroundColor: "white" }}>
+        <Dropdown.Menu
+          style={{
+            backgroundColor: "white"
+          }}>
           <Dropdown.Item>
-            <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/dash"><b>Dashboard</b></NavLink>
+            <NavLink
+              style={{
+                textDecoration: 'none',
+                color: '#97D9E1'
+              }} to="/dash">
+              <b>Dashboard</b>
+            </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <NavLink style={{ textDecoration: 'none', color: '#97D9E1' }} to="/library"><b>My Library</b></NavLink>
+            <NavLink
+              style={{
+                textDecoration: 'none',
+                color: '#97D9E1'
+              }} to="/library">
+              <b>My Library</b>
+            </NavLink>
           </Dropdown.Item>
-          <Dropdown.Item style={{ textDecoration: 'none', color: '#97D9E1' }} onClick={handleLogout}><b>Log Out</b></Dropdown.Item>
+          <Dropdown.Item
+            style={{
+              textDecoration: 'none',
+              color: '#97D9E1'
+            }} onClick={handleLogout}>
+            <b>Log Out</b>
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div >

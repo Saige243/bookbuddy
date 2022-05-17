@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Dropdown from './Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookOpen, faBook, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import {
   Nav,
   NavLogo,
