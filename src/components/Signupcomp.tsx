@@ -33,7 +33,10 @@ export default function Signupcomp(): JSX.Element {
 
   const signup_button = (
     <Button
-      style={{ backgroundColor: '#97D9E1', border: 'none' }}
+      style={{
+        backgroundColor: '#97D9E1',
+        border: 'none'
+      }}
       disabled={loading}
       type="submit"
       className="mt-3 w-100"
@@ -45,7 +48,9 @@ export default function Signupcomp(): JSX.Element {
   const login_link = (
     <div className="w-100 text-center mt-2">
       Already have an account?{' '}
-      <Link style={{ color: 'white' }} to="/">
+      <Link style={{
+        color: 'white'
+      }} to="/">
         Login
       </Link>
     </div>
@@ -57,20 +62,28 @@ export default function Signupcomp(): JSX.Element {
       <Card id="card" className="shadow p-3 m-3">
         <Card.Body>
           <h2 id="heading" className="text-center mb-2">
-            Love reading? <br />Join Now.
+            Love reading?
+            <br />
+            Join Now.
           </h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
-              <Form.Label className="pt-2">Email</Form.Label>
+              <Form.Label className="pt-2">
+                Email
+              </Form.Label>
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label className="pt-2">Password</Form.Label>
+              <Form.Label className="pt-2">
+                Password
+              </Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Form.Group id="password-confirm">
-              <Form.Label className="pt-2">Password Confirmation</Form.Label>
+              <Form.Label className="pt-2">
+                Password Confirmation
+              </Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
             {signup_button}
