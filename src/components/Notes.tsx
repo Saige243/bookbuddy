@@ -56,7 +56,11 @@ export default function App(): JSX.Element {
 
   const submit_note = (
     <Button
-      style={{ boxShadow: "none", backgroundColor: '#97D9E1', border: 'none' }}
+      style={{
+        boxShadow: "none",
+        backgroundColor: '#97D9E1',
+        border: 'none'
+      }}
       onClick={resetInputField}
       className="mt-2"
       variant="primary"
@@ -77,7 +81,9 @@ export default function App(): JSX.Element {
         controlId="exampleForm.ControlInput1"
       >
       </Form.Group>
-      <Form.Group style={{ textAlign: "center" }}
+      <Form.Group style={{
+        textAlign: "center"
+      }}
         controlId="exampleForm.ControlTextarea1">
         <Form.Label>Thoughts & Notes:</Form.Label>
         <Form.Control
