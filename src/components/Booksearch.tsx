@@ -26,7 +26,18 @@ export default function Booksearch(): JSX.Element {
       setVisible(true)
       setVisibleButton(true)
       setVisibleButton(
-        <Button style={{ boxShadow: "none", backgroundColor: "red", marginTop: "7px", border: "none" }} type="submit" onClick={deleteCard} className="btn"><strong>x</strong></Button>)
+        <Button
+          style={{
+            boxShadow: "none",
+            backgroundColor: "red",
+            marginTop: "7px",
+            border: "none"
+          }}
+          type="submit"
+          onClick={deleteCard}
+          className="btn">
+          <strong>x</strong>
+        </Button>)
     })
   }
 
@@ -42,13 +53,32 @@ export default function Booksearch(): JSX.Element {
   }
 
   const booksearch_button = (
-    <Button style={{ boxShadow: "none", backgroundColor: "#97D9E1", marginTop: "7px", marginRight: "5px", border: "none" }} type="submit" className="btn"><strong>Search</strong></Button>
+    <Button
+      style={{
+        boxShadow: "none",
+        backgroundColor: "#97D9E1",
+        marginTop: "7px",
+        marginRight: "5px",
+        border: "none"
+      }}
+      type="submit"
+      className="btn">
+      <strong>Search</strong>
+    </Button>
   )
 
   // Add to Library here
   const popoverTop = (
     <Popover id="popover-positioned-top" title="Popover top">
-      <Button style={{ backgroundColor: "#97D9E1", border: "none" }} size="sm"><FontAwesomeIcon size="sm" icon={faPlus} /> <FontAwesomeIcon size="sm" icon={faBook} /></Button>
+      <Button
+        style={{
+          backgroundColor: "#97D9E1",
+          border: "none"
+        }}
+        size="sm"><FontAwesomeIcon
+          size="sm" icon={faPlus} />
+        <FontAwesomeIcon size="sm" icon={faBook} />
+      </Button>
     </Popover>
   );
 
