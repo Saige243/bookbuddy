@@ -11,6 +11,16 @@ export default function Booksearch(): JSX.Element {
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
+  // const [currentBook, setCurrentBook] = useState({
+  //   title: '',
+  //   author: '',
+  //   image: ''
+  // })
+
+  // const currentBookFunction = (e) => {
+  //   setCurrentBook()
+  // }
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const book = e.target.value;
@@ -98,7 +108,15 @@ export default function Booksearch(): JSX.Element {
               marginBottom: "5px"
             }}>
             <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
-              <img style={{ width: "6rem", height: "fill", marginBottom: "8px" }} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+
+              <img style={{
+                width: "6rem",
+                height: "fill",
+                marginBottom: "8px"
+              }}
+                src={book.volumeInfo.imageLinks.thumbnail}
+                alt={book.title} />
+
             </OverlayTrigger>
             <Button
               style={{
@@ -106,7 +124,13 @@ export default function Booksearch(): JSX.Element {
                 border: "none",
                 boxShadow: "none"
               }}
-              size="sm" target="_blank" href={book.volumeInfo.infoLink}><FontAwesomeIcon size="lg" icon={faInfoCircle} />
+              size="sm" target="_blank" href={book.volumeInfo.infoLink}>
+              <FontAwesomeIcon size="lg" icon={faInfoCircle} />
+            </Button>
+            <Button
+              size="sm"
+            >
+              ADD
             </Button>
             <div
               style={{
@@ -123,6 +147,16 @@ export default function Booksearch(): JSX.Element {
       ))}
     </Card.Body>
   )
+
+  const [currentBook, setCurrentBook] = useState({
+    title: '',
+    author: '',
+    image: ''
+  })
+
+  // const currentBookFunction = (e) => {
+
+  // }
 
   const layout = (
     <div className="bookcontainer">
