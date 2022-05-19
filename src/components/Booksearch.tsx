@@ -11,15 +11,6 @@ export default function Booksearch(): JSX.Element {
   const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
-  // const [currentBook, setCurrentBook] = useState({
-  //   title: '',
-  //   author: '',
-  //   image: ''
-  // })
-
-  // const currentBookFunction = (e) => {
-  //   setCurrentBook()
-  // }
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
