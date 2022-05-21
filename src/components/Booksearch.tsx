@@ -90,11 +90,27 @@ export default function Booksearch(): JSX.Element {
 
   const layout = (
     <div className="bookcontainer">
-      <Card id="card" style={{ width: '100%' }}>
-        <h1 id="heading" style={{ paddingTop: "20px" }}>Book Search</h1>
+      <Card id="card"
+        style={{
+          width: '100%'
+        }}>
+        <h1 id="heading"
+          style={{
+            paddingTop: "20px"
+          }}>
+          Book Search
+        </h1>
         <form onSubmit={handleSubmit}>
           <div className="formgroup">
-            <input style={{ borderColor: "#97D9E1" }} type="text" onChange={handleChange} className="inputcontrol" placeholder="title/author" autoComplete="on"></input>
+            <input style={{
+              borderColor: "#97D9E1"
+            }}
+              type="text"
+              onChange={handleChange}
+              className="inputcontrol"
+              placeholder="title/author"
+              autoComplete="on">
+            </input>
           </div>
           {booksearch_button}
           {visiblebutton}
