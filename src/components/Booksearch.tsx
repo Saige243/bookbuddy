@@ -4,6 +4,7 @@ import { Card, Container, OverlayTrigger, Popover } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faBook, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
+import BookContainer from './molecules/BookContainer'
 
 export default function Booksearch(): JSX.Element {
   const [book, setBook] = React.useState<string>('')
@@ -69,85 +70,23 @@ export default function Booksearch(): JSX.Element {
   )
 
   // Add to Library here
-  const popoverTop = (
-    <Popover id="popover-positioned-top" title="Popover top">
-      <Button
-        style={{
-          backgroundColor: "#97D9E1",
-          border: "none"
-        }}
-        size="sm"><FontAwesomeIcon
-          size="sm" icon={faPlus} />
-        <FontAwesomeIcon size="sm" icon={faBook} />
-      </Button>
-    </Popover>
-  );
 
   const booksearch_results = (
     <Card.Body id="card" className="shadow-sm">
       {visible && result.map((book: any) => (
         <>
-          <Container className="bkcontainer" fluid
-            style={{
-              width: "6rem",
-              textAlign: "center",
-              justifyContent: "center",
-              display: "inline-grid",
-              margin: "5px",
-              paddingTop: "25px",
-              alignItems: "center",
-              marginBottom: "5px"
-            }}>
-            <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
-
-              <img style={{
-                width: "6rem",
-                height: "fill",
-                marginBottom: "8px"
-              }}
-                src={book.volumeInfo.imageLinks.thumbnail}
-                alt={book.title} />
-
-            </OverlayTrigger>
-            <Button
-              style={{
-                backgroundColor: "#97D9E1",
-                border: "none",
-                boxShadow: "none"
-              }}
-              size="sm" target="_blank" href={book.volumeInfo.infoLink}>
-              <FontAwesomeIcon size="lg" icon={faInfoCircle} />
-            </Button>
-            <Button
-              size="sm"
-            >
-              ADD
-            </Button>
-            <div
-              style={{
-                fontSize: "11px"
-              }}>
-              <p>
-                <strong>{book.volumeInfo.title}</strong>
-                <br />
-                {book.volumeInfo.authors}
-              </p>
-            </div>
-          </Container>
+          <BookContainer
+            src={book.volumeInfo.imageLinks.thumbnail}
+            alt={book.title}
+            href={book.volumeInfo.infoLink}
+            title={book.volumeInfo.title}
+            authors={book.volumeInfo.authors}
+          />
         </>
       ))}
     </Card.Body>
   )
 
-  const [currentBook, setCurrentBook] = useState({
-    title: '',
-    author: '',
-    image: ''
-  })
-
-  // const currentBookFunction = (e) => {
-
-  // }
 
   const layout = (
     <div className="bookcontainer">
