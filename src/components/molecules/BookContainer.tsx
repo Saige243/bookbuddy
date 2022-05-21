@@ -32,8 +32,8 @@ export default function BookContainer(props: any) {
         alignItems: "center",
         marginBottom: "5px"
       }}>
-      <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
 
+      <OverlayTrigger rootClose trigger="click" placement="top" overlay={popoverTop}>
         <img style={{
           width: "6rem",
           height: "fill",
@@ -41,8 +41,8 @@ export default function BookContainer(props: any) {
         }}
           src={props.src}
           alt={props.alt} />
-
       </OverlayTrigger>
+
       <Button
         style={{
           backgroundColor: "#97D9E1",
@@ -52,6 +52,7 @@ export default function BookContainer(props: any) {
         size="sm" target="_blank" href={props.href}>
         <FontAwesomeIcon size="lg" icon={faInfoCircle} />
       </Button>
+
       <div
         style={{
           fontSize: "11px"
@@ -62,6 +63,7 @@ export default function BookContainer(props: any) {
           {props.authors}
         </p>
       </div>
+
     </Container>
   )
 }
