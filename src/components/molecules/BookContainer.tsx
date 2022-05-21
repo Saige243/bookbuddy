@@ -13,8 +13,8 @@ export default function BookContainer(props: any) {
           backgroundColor: "#97D9E1",
           border: "none"
         }}
-        size="sm"><FontAwesomeIcon
-          size="sm" icon={faPlus} />
+        size="sm">
+        <FontAwesomeIcon size="sm" icon={faPlus} />
         <FontAwesomeIcon size="sm" icon={faBook} />
       </Button>
     </Popover>

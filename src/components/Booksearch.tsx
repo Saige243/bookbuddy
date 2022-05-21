@@ -7,9 +7,9 @@ import BookContainer from './molecules/BookContainer'
 export default function Booksearch(): JSX.Element {
   const [book, setBook] = React.useState<string>('')
   const [result, setResult] = useState<AxiosMap | string[]>([]);
-  const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
+  // const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,8 +18,11 @@ export default function Booksearch(): JSX.Element {
     console.log(book)
   }
 
+  const apiKey = "AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE"
+
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
 
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
@@ -86,7 +89,8 @@ export default function Booksearch(): JSX.Element {
 
   const layout = (
     <div className="bookcontainer">
-      <Card id="card"
+      <Card
+        id="card"
         style={{
           width: '100%'
         }}>
@@ -96,11 +100,13 @@ export default function Booksearch(): JSX.Element {
           }}>
           Book Search
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}>
           <div className="formgroup">
-            <input style={{
-              borderColor: "#97D9E1"
-            }}
+            <input
+              style={{
+                borderColor: "#97D9E1"
+              }}
               type="text"
               onChange={handleChange}
               className="inputcontrol"
