@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import axios, { AxiosResponse } from 'axios';
-import { Card, Container, OverlayTrigger, Popover } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle, faBook, faPlus } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios';
+import { Card } from 'react-bootstrap'
 import { Button } from 'react-bootstrap';
 import BookContainer from './molecules/BookContainer'
 
@@ -22,6 +20,7 @@ export default function Booksearch(): JSX.Element {
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
       console.log(result)
@@ -69,8 +68,6 @@ export default function Booksearch(): JSX.Element {
     </Button>
   )
 
-  // Add to Library here
-
   const booksearch_results = (
     <Card.Body id="card" className="shadow-sm">
       {visible && result.map((book: any) => (
@@ -86,7 +83,6 @@ export default function Booksearch(): JSX.Element {
       ))}
     </Card.Body>
   )
-
 
   const layout = (
     <div className="bookcontainer">
