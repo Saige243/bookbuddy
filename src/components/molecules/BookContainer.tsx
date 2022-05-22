@@ -1,17 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Card, Container, OverlayTrigger, Popover } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faBook, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';
 
+
 export default function BookContainer(props: any) {
+  const [currentBook, setCurrentBook] = useState<any>({
+    title: props.title,
+    author: props.authors,
+    thumbnail: props.src
+  })
+
+  function updateCurrentBook(e: any) {
+    setCurrentBook('')
+    const bk = e.target.value
+    // setCurrentBook({ title: bk })
+    setCurrentBook(bk)
+    console.log(currentBook)
+  }
 
   const popoverTop = (
     <Popover id="popover-positioned-top" title="Popover top">
       <Button
+        onClick={updateCurrentBook}
         style={{
           backgroundColor: "#97D9E1",
-          border: "none"
+          border: "none",
         }}
         size="sm">
         <FontAwesomeIcon size="sm" icon={faPlus} />
