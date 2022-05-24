@@ -9,7 +9,6 @@ export default function Booksearch(): JSX.Element {
   const [result, setResult] = useState<AxiosMap | string[]>([]);
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
-  // const [apiKey, setApiKey] = useState("AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE")
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,7 +17,7 @@ export default function Booksearch(): JSX.Element {
     console.log(book)
   }
 
-  const apiKey = "AIzaSyBGyvSVgMsB-siZQOsq_-Nd7kqkvwPehaE"
+  const apiKey = process.env.REACT_APP_GOOGLEBOOKS_API_KEY
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
