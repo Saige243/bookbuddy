@@ -10,14 +10,13 @@ export default function Booksearch(): JSX.Element {
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
 
+  const apiKey = process.env.REACT_APP_GOOGLEBOOKS_API_KEY
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const book = e.target.value;
     setBook(book);
-    console.log(book)
+    // console.log(book)
   }
-
-  const apiKey = process.env.REACT_APP_GOOGLEBOOKS_API_KEY
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ export default function Booksearch(): JSX.Element {
 
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
       setResult(data.data.items)
-      console.log(result)
+      // console.log(result)
       setVisible(true)
       setVisibleButton(true)
       setVisibleButton(

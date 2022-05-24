@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Container, OverlayTrigger, Popover } from 'react-bootstrap'
+import { Container, OverlayTrigger, Popover } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faBook, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Button } from 'react-bootstrap';

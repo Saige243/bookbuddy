@@ -13,8 +13,10 @@ import { useHistory } from "react-router-dom"
 
 
 export default function Navbar() {
-  const [error, setError] = useState('')
-  const { currentUser, logout } = useAuth()
+  // had [error, setError] = useState('')
+  const [setError] = useState('')
+  // had vvv const {currentUser, logout } = useAuth()
+  const { logout } = useAuth()
   const history = useHistory()
 
   async function handleLogout() {
