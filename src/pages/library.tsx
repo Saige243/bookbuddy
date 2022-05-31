@@ -7,7 +7,8 @@ export default function Library(props: any): JSX.Element {
       <Navbar />
       <h1>My Library</h1>
       <h1>
-        {/* {props.currentBook.title} */}
+        {props.title}
+        {props.authors}
       </h1>
     </div>
   )

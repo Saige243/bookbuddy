@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import BookContainer from './BookContainer'
 
 export default function Booksearch(): JSX.Element {
-  const [book, setBook] = React.useState<string>('')
+  const [book, setBook] = React.useState<any>('')
   const [result, setResult] = useState<AxiosMap | string[]>([]);
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
@@ -13,8 +13,8 @@ export default function Booksearch(): JSX.Element {
   const apiKey = process.env.REACT_APP_GOOGLEBOOKS_API_KEY
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const book = e.target.value;
-    setBook(book);
+    const booke = e.target.value;
+    setBook(booke);
     // console.log(book)
   }
 
@@ -54,6 +54,23 @@ export default function Booksearch(): JSX.Element {
     book: any
   }
 
+  // const [currentBook, setCurrentBook] = useState<any>({
+  //   title: book.title,
+  //   author: book.authors,
+  //   thumbnail: book.src
+  // })
+
+  // function updateCurrentBook(e: any) {
+  //   setCurrentBook('')
+  //   const bk = e.target.value
+  //   // setCurrentBook({ title: bk })
+  //   console.log(bk)
+  //   setCurrentBook(bk)
+  //   // console.log(currentBook)
+  //   console.log(result)
+  // }
+
+
   const booksearch_button = (
     <Button
       style={{
@@ -79,6 +96,7 @@ export default function Booksearch(): JSX.Element {
             href={book.volumeInfo.infoLink}
             title={book.volumeInfo.title}
             authors={book.volumeInfo.authors}
+          // value={updateCurrentBook}
           />
         </>
       ))}
