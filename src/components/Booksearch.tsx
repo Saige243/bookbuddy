@@ -54,21 +54,29 @@ export default function Booksearch(): JSX.Element {
     book: any
   }
 
-  // const [currentBook, setCurrentBook] = useState<any>({
-  //   title: book.title,
-  //   author: book.authors,
-  //   thumbnail: book.src
-  // })
+  const [currentBook, setCurrentBook] = useState<any>({
+    title: book.title,
+    author: book.authors,
+    thumbnail: book.src
+  })
+
+  const onchange = (data: any) => {
+    setCurrentBook(data)
+    console.log("Book:", data)
+  }
 
   // function updateCurrentBook(e: any) {
-  //   setCurrentBook('')
   //   const bk = e.target.value
-  //   // setCurrentBook({ title: bk })
-  //   console.log(bk)
+  //   setCurrentBook(e.target.value)
+  //   console.log(currentBook)
   //   setCurrentBook(bk)
-  //   // console.log(currentBook)
+  //   console.log(e.target.result)
   //   console.log(result)
   // }
+
+  const pull_data = (datar: any) => {
+    console.log(datar)
+  }
 
 
   const booksearch_button = (
@@ -96,7 +104,10 @@ export default function Booksearch(): JSX.Element {
             href={book.volumeInfo.infoLink}
             title={book.volumeInfo.title}
             authors={book.volumeInfo.authors}
-          // value={updateCurrentBook}
+            // value={updateCurrentBook}
+            func={pull_data}
+            data={currentBook}
+            onchange={(e: any) => { onchange(e) }}
           />
         </>
       ))}

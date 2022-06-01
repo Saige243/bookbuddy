@@ -12,18 +12,28 @@ export default function BookContainer(props: any) {
     thumbnail: props.src
   })
 
-  function updateCurrentBook(e: any) {
-    setCurrentBook('')
-    const bk = e.target.value
-    // setCurrentBook({ title: bk })
-    setCurrentBook(bk)
-    console.log(currentBook)
+  const handleClick = (e: any) => {
+    setCurrentBook(e.target.value)
+    props.onchange(currentBook)
   }
+
+  // function updateCurrentBook(e: any) {
+  //   setCurrentBook('')
+  //   const bk = e.target.value
+  //   // setCurrentBook({ title: bk })
+  //   setCurrentBook(bk)
+  //   console.log(currentBook)
+  // }
+
+
+
+  props.func('hello there! Everything worked!')
 
   const popoverTop = (
     <Popover id="popover-positioned-top" title="Popover top">
       <Button
-        onClick={updateCurrentBook}
+        onClick={handleClick}
+        // onClick={updateCurrentBook}
         style={{
           backgroundColor: "#97D9E1",
           border: "none",
