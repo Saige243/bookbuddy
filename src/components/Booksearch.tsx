@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap'
 import { Button } from 'react-bootstrap';
@@ -62,7 +62,8 @@ export default function Booksearch(): JSX.Element {
 
   const onchange = (data: any) => {
     setCurrentBook(data)
-    console.log("Book:", data)
+    console.log(data)
+    // console.log("Book:", currentBook)
   }
 
   // function updateCurrentBook(e: any) {
@@ -77,6 +78,12 @@ export default function Booksearch(): JSX.Element {
   const pull_data = (datar: any) => {
     console.log(datar)
   }
+
+  useEffect(() => {
+    setCurrentBook(currentBook)
+    console.log("Book:", currentBook)
+    console.log('useEffect rendered!')
+  }, [currentBook])
 
 
   const booksearch_button = (

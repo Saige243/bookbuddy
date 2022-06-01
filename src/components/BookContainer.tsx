@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, OverlayTrigger, Popover } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faBook, faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -6,16 +6,20 @@ import { Button } from 'react-bootstrap';
 
 
 export default function BookContainer(props: any) {
-  const [currentBook, setCurrentBook] = useState<any>({
+  const [currentBooke, setCurrentBooke] = useState<any>({
     title: props.title,
     author: props.authors,
     thumbnail: props.src
   })
 
   const handleClick = (e: any) => {
-    setCurrentBook(e.target.value)
-    props.onchange(currentBook)
+    setCurrentBooke(e.target.value)
+    props.onchange(currentBooke)
   }
+
+  useEffect(() => {
+
+  }, [currentBooke])
 
   // function updateCurrentBook(e: any) {
   //   setCurrentBook('')
