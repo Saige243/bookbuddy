@@ -10,6 +10,8 @@ export default function Booksearch(): JSX.Element {
   const [visible, setVisible] = useState(true);
   const [visiblebutton, setVisibleButton] = useState<JSX.Element | boolean>(false);
 
+  // const [libraryArray, setLibraryArray] = useState<any[]>([])
+
   const apiKey = process.env.REACT_APP_GOOGLEBOOKS_API_KEY
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,8 +83,11 @@ export default function Booksearch(): JSX.Element {
 
   useEffect(() => {
     setCurrentBook(currentBook)
+    // setLibraryArray([...libraryArray, { currentBook }])
     console.log("Book:", currentBook)
     console.log('useEffect rendered!')
+    // console.log('LibraryArr:', libraryArray)
+    // add libraryArrary to v
   }, [currentBook])
 
 
