@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 8000
+const dotenv = require('dotenv').config()
+const port = process.env.PORT
 const colors = require('colors')
 
 app.get('/', (req, res) => {
