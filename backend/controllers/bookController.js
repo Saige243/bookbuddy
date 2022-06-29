@@ -15,7 +15,7 @@ const getBooks = asyncHandler(async (req, res) => {
   res.status(200).json(books)
 })
 
-// @desc set Goals
+// @desc set Books
 // @route POST /api/books/:id
 // @access Private
 const setBook = asyncHandler(async (req, res) => {
@@ -24,25 +24,25 @@ const setBook = asyncHandler(async (req, res) => {
     throw new Error('Please add a text field.')
   }
 
-  const goal = await Goal.create({
+  const book = await Book.create({
     title: req.body.text,
     author: req.user.id,
     thumbnail: 'Not sure what goes here?'
   })
 
-  res.status(200).json(goal)
+  res.status(200).json(book)
 })
 
 // NOT SURE IF I NEED A POST METHOD?
-// @desc Update Goal
-// @route PUT /api/goals/:id
+// @desc Update Book
+// @route PUT /api/books/:id
 // @access Private
 // const updateBook = asyncHandler(async (req, res) => {
-//   const goal = await Goal.findById(req.params.id)
+//   const book = await Book.findById(req.params.id)
 
-// if (!goal) {
+// if (!book) {
 //   res.status(400)
-//   throw new Error('Goal not found.')
+//   throw new Error('Book not found.')
 // }
 
 // check for user
@@ -51,21 +51,21 @@ const setBook = asyncHandler(async (req, res) => {
 //   throw new Error('User not found')
 // }
 
-// make sure the logged in user matches the goal user
-// if (goal.user.toString() !== req.user.id) {
+// make sure the logged in user matches the book user
+// if (book.user.toString() !== req.user.id) {
 //   res.status(401)
 //   throw new Error('User not authorized')
 // }
 
-// const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
+// const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body, {
 //   new: true
 // })
 
-//   res.status(200).json(updatedGoal)
+//   res.status(200).json(updatedBook)
 // })
 
-// @desc Delete Goal
-// @route DELETE /api/goals/:id
+// @desc Delete Book
+// @route DELETE /api/books/:id
 // @access Private
 const deleteBook = asyncHandler(async (req, res) => {
   const book = await Book.findById(req.params.id)
@@ -81,7 +81,7 @@ const deleteBook = asyncHandler(async (req, res) => {
     throw new Error('User not found')
   }
 
-  // make sure the logged in user matches the goal user
+  // make sure the logged in user matches the book user
   if (book.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('User not authorized')
@@ -93,8 +93,8 @@ const deleteBook = asyncHandler(async (req, res) => {
 })
 
 module.exports = {
-  getGoals,
-  setGoal,
-  updateGoal,
-  deleteGoal
+  getBooks,
+  setBook,
+  // updateBook,
+  deleteBook
 }
