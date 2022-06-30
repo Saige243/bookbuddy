@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-import { getBooks, setBook, deleteBook } from '../controllers/bookController'
+const { getBooks, setBook, deleteBook } = require('../controllers/bookController')
 
 const { protect } = require('../middleware/authMiddleware')
 
