@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Trocchi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap');
 
 
-#heading{
-  font-family: 'Trocchi', serif;
+*{
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .logo{
