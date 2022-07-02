@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "@tsconfig/create-react-app": "^1.0.2",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "nodemon": "^2.0.18"
   }
 }

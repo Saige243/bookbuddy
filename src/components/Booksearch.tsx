@@ -24,7 +24,7 @@ export default function Booksearch(): JSX.Element {
     e.preventDefault();
 
 
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then(data => {
+    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + apiKey + "&maxResults=20").then((data: any) => {
       setResult(data.data.items)
       // console.log(result)
       setVisible(true)

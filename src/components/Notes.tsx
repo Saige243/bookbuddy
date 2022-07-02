@@ -73,7 +73,7 @@ export default function App(): JSX.Element {
   const note_form = (
     <Form
       onSubmit={handleFormSubmit}
-      value={todo}
+      // value={todo}
       onChange={handleInputChange}
     >
       <Form.Group
