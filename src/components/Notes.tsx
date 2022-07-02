@@ -70,10 +70,10 @@ export default function App(): JSX.Element {
     </Button>
   )
 
+  // if bug pops up, restore value={todo} on Form component
   const note_form = (
     <Form
       onSubmit={handleFormSubmit}
-      // value={todo}
       onChange={handleInputChange}
     >
       <Form.Group

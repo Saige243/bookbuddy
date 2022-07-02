@@ -20,8 +20,6 @@ export default function Navbar() {
   const history = useHistory()
 
   async function handleLogout() {
-    setError('')
-
     try {
       await logout()
       history.push('/')
