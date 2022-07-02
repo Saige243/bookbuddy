@@ -1,13 +1,13 @@
 import * as React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dash from './pages/Dashboard'
-import Library from './pages/library';
-import Search from './pages/search';
-import SignUp from './pages/signup';
+import Library from './pages/Library';
+import Search from './pages/Search';
+import SignUp from './pages/Signup';
 import { Container } from 'react-bootstrap'
 import AuthProvider from './contexts/AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './pages/login'
+import Login from './pages/Login'
 import './App.css'
 import PrivateRoute from './components/PrivateRoute'
 
