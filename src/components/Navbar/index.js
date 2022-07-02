@@ -15,8 +15,7 @@ import { useHistory } from "react-router-dom"
 export default function Navbar() {
   // had [error, setError] = useState('')
   const [setError] = useState('')
-  // had vvv const {currentUser, logout } = useAuth()
-  const { logout } = useAuth()
+  const { currentUser, logout } = useAuth()
   const history = useHistory()
 
   async function handleLogout() {
@@ -37,10 +36,10 @@ export default function Navbar() {
         </NavLogo>
         <Dropdown />
         <NavMenu>
-          <NavLink className="navlink" to="/dash" activeStyle>
+          <NavLink className="navlink" to="/dash" >
             <FontAwesomeIcon size="lg" icon={faHome} />
           </NavLink>
-          <NavLink to="/library" activeStyle>
+          <NavLink to="/library" >
             <FontAwesomeIcon size="lg" icon={faBook} />
           </NavLink>
           <NavLink to='/' onClick={handleLogout}>

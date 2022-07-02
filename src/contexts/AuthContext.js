@@ -29,11 +29,12 @@ export default function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
       setLoading(false)
+      console.log(currentUser)
     })
 
     return unsubscribe
 
-  }, [])
+  }, [currentUser])
 
   const value = {
     currentUser,

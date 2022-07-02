@@ -5,8 +5,7 @@ import { NavLink, useHistory } from "react-router-dom"
 
 export default function DropdownMenu() {
   const [error, setError] = useState('')
-  // had vvv const {currentUser, logout } = useAuth()
-  const { logout } = useAuth()
+  const { currentUser, logout } = useAuth()
   const history = useHistory()
 
   async function handleLogout() {
