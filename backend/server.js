@@ -8,6 +8,10 @@ const colors = require('colors')
 
 connectDB()
 
+app.get('/', (req, res) => {
+  res.send('Server listening')
+})
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
