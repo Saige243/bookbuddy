@@ -85,7 +85,6 @@ export default function Booksearch(): JSX.Element {
     setCurrentBook(currentBook)
     // setLibraryArray([...libraryArray, { currentBook }])
     console.log("Book:", currentBook)
-    console.log('useEffect rendered!')
     // console.log('LibraryArr:', libraryArray)
     // add libraryArrary to v
   }, [currentBook])
